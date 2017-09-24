@@ -1,174 +1,350 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
-
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>
+        
+        fi3ework&#39;s Studio
+        
+    </title>
+    <link rel="icon" href= /assests/favicon.ico>
+    <!-- 提前加载place holder  -->
+    <style>
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url('/font/Oswald-Regular.ttf');
+        }
+        @font-face {
+            font-family: 'Source Sans Pro';
+            src: url('/font/Source Sans Pro.woff'),
+            url('/font/Source Sans Pro.woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Source Code Pro';
+            src: url('/font/SourceCodePro-Regular.ttf.woff'),
+            url('/font/SourceCodePro-Regular.ttf.woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        
+        .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0px;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        99% {
+            transform: translate3d(0, 0, 0);
+        }
+        99.1% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(-226px, 0, 0);
+        }
+    }
+    </style>
+    <link rel="stylesheet" href = "/css/style.css?v=20170912" />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
 </head>
+    
+        <body class="home-body">
+    
+    
+<header class="header index-header">
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <a class="home-link" href=/>fi3ework's Studio.</a>
 </header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-嵌入式处理器" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/09/24/嵌入式处理器/" class="article-date">
-  <time datetime="2017-09-24T08:08:18.000Z" itemprop="datePublished">2017-09-24</time>
-</a>
+    <div class="wrapper">
+        <div class="site-intro">
     
-  </div>
-  <div class="article-inner">
+    <!-- 主页  -->
     
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="嵌入式处理器"><a href="#嵌入式处理器" class="headerlink" title="嵌入式处理器"></a>嵌入式处理器</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​    在学习嵌入式开发这门课程之前，我对嵌入式处理器一无所知。甚至认为<strong>arm处理器与单片机</strong>是差不多的东西。本文通过探讨嵌入式处理器的区别，力求在本文中对嵌入式的世界观进行一个初步的梳理。</p>
-<h3 id="嵌入式的定义"><a href="#嵌入式的定义" class="headerlink" title="嵌入式的定义"></a>嵌入式的定义</h3><p>​    IEEE（Institute of Electrical and Electronics Engineers，美国电气和电子工程师协会）对<a href="https://baike.baidu.com/item/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F" target="_blank" rel="external">嵌入式系统</a>的定义：“用于控制、监视或者辅助操作机器和设备的装置”。原文为：Devices Used to Control，Monitor or Assist the Operation of Equipment，Machinery or Plants。</p>
-<h3 id="回顾处理器（CPU）的定义"><a href="#回顾处理器（CPU）的定义" class="headerlink" title="回顾处理器（CPU）的定义"></a>回顾处理器（CPU）的定义</h3><p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Intel_Core_I7-920_Boxed_-_14.JPG/440px-Intel_Core_I7-920_Boxed_-_14.JPG" alt="pic1"></p>
-<p>​    计算机的主要设备之一，功能主要是<u><strong>解释计算机指令以及处理计算机软件中的数据。</strong></u>    </p>
-<h3 id="嵌入式微控制器（MCU）—单片机"><a href="#嵌入式微控制器（MCU）—单片机" class="headerlink" title="嵌入式微控制器（MCU）—单片机"></a>嵌入式微控制器（MCU）—单片机</h3><p>​    全程单片微型计算机，又称微控制器。是把中央处理器、存储器、定时／计数器、各种输入输出接口等都集成在<strong><u>一块集成电路芯片</u></strong>上的微型计算机。<strong><u>与应用在个人电脑中的通用性微处理器相比，它更强调自供应。</u></strong></p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/STM32F100C4T6B-HD.jpg/640px-STM32F100C4T6B-HD.jpg" alt="pic2"></p>
-<h3 id="嵌入式微处理器（EMPU）—-单板计算机"><a href="#嵌入式微处理器（EMPU）—-单板计算机" class="headerlink" title="嵌入式微处理器（EMPU）— 单板计算机"></a>嵌入式微处理器（EMPU）— 单板计算机</h3><p>​    由通用计算机中的CPU发展而来，主要特点是具有比较高的性能。与计算机CPU不同的是，只保留和嵌入式应用紧密相关的功能硬件，去掉其它的冗余功能部分，因此体积小、重量轻、功耗低、成本低以及可靠性高。与单片机不同，EMPU并不带有外围设备，需要添加RA，ROM等。</p>
-<p><img src="http://ok8er9pip.bkt.clouddn.com/armsoftbank.jpg" alt="pic3"></p>
-<p>​                                    <em>嵌入式微处理的霸主-arm</em></p>
-<h3 id="嵌入式片上系统（SoC）"><a href="#嵌入式片上系统（SoC）" class="headerlink" title="嵌入式片上系统（SoC）"></a>嵌入式片上系统（SoC）</h3><h4 id="IP核-与-架构授权"><a href="#IP核-与-架构授权" class="headerlink" title="IP核 与 架构授权"></a>IP核 与 架构授权</h4><p>​    关于SoC，则绕不过ARM这家伟大的公司。关于ARM很多人的理解可能仅限于听闻。而为何高通处理器、苹果处理器等统统被称作ARM处理器？</p>
-<p>​    这是因为他们的处理器或多或少都是通过ARM授权获得或者改造的。</p>
-<p>​    苹果的Ax系列获得了ARM的指令集授权，在该基础上自行设计SoC。而高通与三星则是获取了ARM架构授权，在此基础上构建自己的SoC。往下还有IP核授权。</p>
-<p>​    SoC是一个将电脑或其他电子系统集成到单一芯片的集成电路。系统芯片可以处理数字信号、模拟信号、混合信号甚至更高频率的信号。SoC为一个产品，是一个有专用目标的集成电路。可以将处理器与一些专用的外围芯片集成到一起，组成一个系统。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/09/24/嵌入式处理器/" data-id="cj7yqtk160000952622n1v528" class="article-share-link">Partager</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-</section>
+    <!-- 文章页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://oumn0o088.bkt.clouddn.com/intro-desktop.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            fi3ework's Studio.
+            <!-- 文章页  -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+                it's better to burn out than to fade away
+            
+            <!-- 文章页  -->
+            
+        <!-- 文章页meta -->
         
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">September 2017</a></li></ul>
     </div>
-  </div>
-
-
-  
+</div>
+        <div class="container">
+            <main class="main index-page">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/09/24/嵌入式处理器/">(no title)</a>
-          </li>
-        
-      </ul>
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2017/09/24/栈帧/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>栈帧</span>
+                    </h2>
+                <div class="abstract-content">
+                    
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/24</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2017/09/24/嵌入式处理器/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>[Untitled Post]</span>
+                    </h2>
+                <div class="abstract-content">
+                    嵌入式处理器前言​    在学习嵌入式开发这门课程之前，我对嵌入式处理器一无所知。甚至认为arm处理器与单片机是差不多的东西。本文通过探讨嵌入式处理器的区别，力求在本文中对嵌入式的世界观进行一个初步的梳理。
+嵌入式的定义​    IEEE（Institute of Electrical and Electronics Engineers，美国电气和电子工程师协会）对嵌入式系统的定义：“用于控制、监视或者辅助操作机器和设备的装置”。原文为：Devices Used to Control，Monitor or Assist the Operation of Equipment，Machine...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/24</span>
+                </div>
+            </div>
+        </article>
+    
+    <!-- paginator  -->
+    
+</main>
+            <!-- profile -->
+            
+            <div class="profile">
+    <img class="profile-avatar" src= /avatar/kumamon.jpg >
+    <div class="profile-name">fi3ework</div>
+    
+    <div class="profile-signature">
+        witness me
     </div>
-  </div>
+    
+    
+    <div class="profile-social">
+        
+    
+        
+            
+                <a href="emailto:12345@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/fi3ework" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
 
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
-  </div>
+    
+    
+        <div class="friends">
+            <div>FRIENDS</div>
+            
+                <span>
+                    <a href= //www.baidu.com target="_black">friendA</a>
+                </span>
+            
+                <span>
+                    <a href= //www.google.com target="_black">friendB</a>
+                </span>
+            
+        </div>
+    
+    
+        <div class="about-me">
+            <div>
+                <a href = "/about" >ABOUT ME</a>
+            </div>
+        </div>
+    
+</div>
+            
+        </div>
+        <footer class="footer">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="emailto:12345@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/fi3ework" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span>
+        <span
+            id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
 </footer>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
     
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 2 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/栈帧/" >栈帧</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/嵌入式处理器/" >[Untitled Post]</a>
+        </li>
+    
+    </div>
   </div>
-</body>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #888; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
 </html>
+
+
