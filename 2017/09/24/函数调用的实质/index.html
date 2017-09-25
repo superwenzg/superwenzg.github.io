@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>
+        
+        函数调用的实质-结合栈帧探讨（Stack Frame） · DiuR21Laonnu&#39;s sites
+        
+    </title>
+    <link rel="icon" href= /assests/favicon.ico>
+    <!-- 提前加载place holder  -->
+    <style>
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url('/font/Oswald-Regular.ttf');
+        }
+        @font-face {
+            font-family: 'Source Sans Pro';
+            src: url('/font/Source Sans Pro.woff'),
+            url('/font/Source Sans Pro.woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Source Code Pro';
+            src: url('/font/SourceCodePro-Regular.ttf.woff'),
+            url('/font/SourceCodePro-Regular.ttf.woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        
+        .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0px;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        99% {
+            transform: translate3d(0, 0, 0);
+        }
+        99.1% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(-226px, 0, 0);
+        }
+    }
+    </style>
+    <link rel="stylesheet" href = "/css/style.css?v=20170912" />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >DiuR21Laonnu</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">函数调用的实质-结合栈帧探讨（Stack Frame）</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>DiuR21Laonnu</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://ok8er9pip.bkt.clouddn.com/postbanner.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            函数调用的实质-结合栈帧探讨（Stack Frame）
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+        </p>
+        <!-- 404 -->
+        
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 底层>底层</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/09/24</span>
+            </div>
+        
+    </div>
+</div>
+        <div class="container">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="函数调用的实质-结合栈帧探讨（Stack-Frame）"><a href="#函数调用的实质-结合栈帧探讨（Stack-Frame）" class="headerlink" title="函数调用的实质-结合栈帧探讨（Stack Frame）"></a>函数调用的实质-结合栈帧探讨（Stack Frame）</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​    在撰写 <strong>函数调用的实质</strong> 时，接触到了栈帧的概念。</p>
+<p>​    为了更好的理解 <strong>函数调用的实质</strong>，故对该概念也进行了相关的整理。</p>
+<h3 id="栈帧是什么"><a href="#栈帧是什么" class="headerlink" title="栈帧是什么"></a>栈帧是什么</h3><p>​    众所周知，栈是一种数据结构。其符合FILO（First in last out) 的原则，该原则在计算机世界中十分的常见。因而栈作为一种数据结构被广泛的使用于计算机中。</p>
+<p>​    在计算机中程序中，<strong>调用栈（ Call Stack ）</strong> 为程序正在使用的栈空间，由多个嵌套函数所使用的<strong>栈帧</strong>组成。</p>
+<p><strong>栈帧（ Stack Frame）</strong> 即为单个函数所分配的栈空间。</p>
+<p>​    对于栈帧，计算机使用两个寄存器对其进行跟踪：<strong>sp（stack pointer） &amp; bp（based pointer）</strong> </p>
+<p>​    ps：在32位机器中为 esp &amp; ebp，64位为 rsp &amp; rbp</p>
+<p>​    对于程序而言，栈从高地址向低地址延伸，堆从低地址从高地址延伸。堆栈之间有大块空闲存储区。</p>
+<p>​    寄存器bp指向栈帧的底部（高地址），寄存器sp指向栈帧的顶部（低地址）</p>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p>​    准备一段代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">foo</span><span class="params">( <span class="keyword">int</span> arg1, <span class="keyword">int</span> arg2 )</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  	<span class="keyword">return</span> arg1 + arg2;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">foo2</span><span class="params">( <span class="keyword">int</span> var1, <span class="keyword">int</span> var2 )</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  	<span class="keyword">return</span> var1 + var2;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  	foo1( <span class="number">1</span>, <span class="number">2</span> );</div><div class="line">  	foo2( <span class="number">3</span>, <span class="number">4</span> );</div><div class="line">  	</div><div class="line">  	<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过 g++ 编译输出 汇编代码</p>
+<p>如下【省略无关紧要的代码】，请先不要阅读以下代码。翻过它，跟着文章的分析部分进行理解。</p>
+<figure class="highlight m"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">__Z3fooii:                              ## @_Z3fooii</div><div class="line">## BB#<span class="number">0</span>:</div><div class="line">	pushl	<span class="comment">%ebp</span></div><div class="line">	movl	<span class="comment">%esp, %ebp</span></div><div class="line">	subl	$<span class="number">8</span>, <span class="comment">%esp</span></div><div class="line">	movl	<span class="number">12</span>(<span class="comment">%ebp), %eax</span></div><div class="line">	movl	<span class="number">8</span>(<span class="comment">%ebp), %ecx</span></div><div class="line">	movl	<span class="comment">%ecx, -4(%ebp)</span></div><div class="line">	movl	<span class="comment">%eax, -8(%ebp)</span></div><div class="line">	movl	-<span class="number">4</span>(<span class="comment">%ebp), %eax</span></div><div class="line">	addl	-<span class="number">8</span>(<span class="comment">%ebp), %eax</span></div><div class="line">	addl	$<span class="number">8</span>, <span class="comment">%esp</span></div><div class="line">	popl	<span class="comment">%ebp</span></div><div class="line">	retl</div><div class="line"></div><div class="line">__Z4foo2ii:                             ## @_Z4foo2ii</div><div class="line">## BB#<span class="number">0</span>:</div><div class="line">	pushl	<span class="comment">%ebp</span></div><div class="line">	movl	<span class="comment">%esp, %ebp</span></div><div class="line">	subl	$<span class="number">8</span>, <span class="comment">%esp</span></div><div class="line">	movl	<span class="number">12</span>(<span class="comment">%ebp), %eax</span></div><div class="line">	movl	<span class="number">8</span>(<span class="comment">%ebp), %ecx</span></div><div class="line">	movl	<span class="comment">%ecx, -4(%ebp)</span></div><div class="line">	movl	<span class="comment">%eax, -8(%ebp)</span></div><div class="line">	movl	-<span class="number">4</span>(<span class="comment">%ebp), %eax</span></div><div class="line">	addl	-<span class="number">8</span>(<span class="comment">%ebp), %eax</span></div><div class="line">	addl	$<span class="number">8</span>, <span class="comment">%esp</span></div><div class="line">	popl	<span class="comment">%ebp</span></div><div class="line">	retl</div><div class="line"></div><div class="line">_main:                                  ## @main</div><div class="line">## BB#<span class="number">0</span>:</div><div class="line">	pushl	<span class="comment">%ebp </span></div><div class="line">	movl	<span class="comment">%esp, %ebp </span></div><div class="line">	subl	$<span class="number">40</span>, <span class="comment">%esp </span></div><div class="line">	movl	$<span class="number">1</span>, <span class="comment">%eax </span></div><div class="line">	movl	$<span class="number">2</span>, <span class="comment">%ecx </span></div><div class="line">	movl	$<span class="number">0</span>, -<span class="number">4</span>(<span class="comment">%ebp) </span></div><div class="line">	movl	$<span class="number">1</span>, (<span class="comment">%esp)</span></div><div class="line">	movl	$<span class="number">2</span>, <span class="number">4</span>(<span class="comment">%esp) </span></div><div class="line">	movl	<span class="comment">%eax, -8(%ebp)          ## 4-byte Spill </span></div><div class="line">	movl	<span class="comment">%ecx, -12(%ebp)         ## 4-byte Spill </span></div><div class="line">	calll	__Z3fooii</div><div class="line">	movl	$<span class="number">3</span>, <span class="comment">%ecx</span></div><div class="line">	movl	$<span class="number">4</span>, <span class="comment">%edx</span></div><div class="line">	movl	$<span class="number">3</span>, (<span class="comment">%esp)</span></div><div class="line">	movl	$<span class="number">4</span>, <span class="number">4</span>(<span class="comment">%esp)</span></div><div class="line">	movl	<span class="comment">%eax, -16(%ebp)         ## 4-byte Spill</span></div><div class="line">	movl	<span class="comment">%ecx, -20(%ebp)         ## 4-byte Spill</span></div><div class="line">	movl	<span class="comment">%edx, -24(%ebp)         ## 4-byte Spill</span></div><div class="line">	calll	__Z4foo2ii</div><div class="line">	xorl	<span class="comment">%ecx, %ecx</span></div><div class="line">	movl	<span class="comment">%eax, -28(%ebp)         ## 4-byte Spill</span></div><div class="line">	movl	<span class="comment">%ecx, %eax</span></div><div class="line">	addl	$<span class="number">40</span>, <span class="comment">%esp</span></div><div class="line">	popl	<span class="comment">%ebp</span></div><div class="line">	retl</div></pre></td></tr></table></figure>
+<h3 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h3><p>首先，我们对main函数进行剖析</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pushl %ebp</div><div class="line">movl %esp,%ebp</div><div class="line">subl $40,%esp</div></pre></td></tr></table></figure>
+<p>在前文，我们指出bp，sp寄存器分别为基址指针寄存器与栈指针寄存器。调用main函数的时候，main函数对ebp指针进行压栈操作，保存上一个栈帧的栈顶。并且将esp的值初始化为当前的栈顶值【当前栈顶即为栈底】。</p>
+<p>而后，subl语句。对esp寄存器进行了减40操作，为main函数创建了大小为40个字节的栈帧</p>
+<hr>
+<p>接下来考虑如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">movl $1,$eax</div><div class="line">movl $2,$ecx</div><div class="line">movl $0,-4($ebp)</div><div class="line">movl $1,(%esp)</div><div class="line">movl $2,4(%esp)</div><div class="line">movl $eax,-8(%ebp)</div><div class="line">movl $ecx,-12(%ebp)</div></pre></td></tr></table></figure>
+<p>​    回归c++代码，调用函数为foo(1,2)。因而，该汇编代码向我们展示了以下几个事实：</p>
+<ul>
+<li>main函数初始参数为0</li>
+<li>调用函数前，函数参数从右向左被推入栈中。movl $1,(%esp)将参数1推入main栈帧帧底，movl $2, 4(%esp)将参数2推入main栈帧帧底加4个字节。【栈从高往低延伸】</li>
+<li>局部变量一开始被寄存于寄存器，而后因为溢出，而被存放到了内存【十分不合理的感觉，望高人赐教】</li>
+</ul>
+<hr>
+<p>接下来，我们进入第一个函数foo，在汇编代码中其为__Z3fooii</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">__Z3fooii:                              ## @_Z3fooii</div><div class="line">## BB#0:</div><div class="line">	pushl	%ebp</div><div class="line">	movl	%esp, %ebp</div><div class="line">	subl	$8, %esp</div><div class="line">	movl	12(%ebp), %eax</div><div class="line">	movl	8(%ebp), %ecx</div><div class="line">	movl	%ecx, -4(%ebp)</div><div class="line">	movl	%eax, -8(%ebp)</div><div class="line">	movl	-4(%ebp), %eax</div><div class="line">	addl	-8(%ebp), %eax</div><div class="line">	addl	$8, %esp</div><div class="line">	popl	%ebp</div><div class="line">	retl</div></pre></td></tr></table></figure>
+<ul>
+<li>保存main函数的基指针，也就是保存main函数栈帧的栈底 [pushl    %ebp]</li>
+<li>设定当前栈帧的栈底为上一栈帧的栈顶 [movl    %esp, %ebp]</li>
+<li>获取局部变量，并放置于寄存器中。这里我们回忆一下main函数中，局部变量应当是放置于栈顶处以及栈顶地址+4个字节的地址处。而在fooii函数中，+8以及+12是因为当main函数调用fooii函数时<strong><u>在其栈顶处压入了下一指令的执行地址</u></strong>，而在32位系统中这恰好是4个字节。 [movl    12(%ebp), %eax];[movl 8(%ebp), %ecx]</li>
+<li>保存变量在该栈帧中，而后根据指针偏移量进行addl操作。</li>
+<li>移动esp指针，完成退栈，运算结果保存在eax寄存器中。弹出上一栈帧的栈基指针。推出函数</li>
+</ul>
+<h3 id="结"><a href="#结" class="headerlink" title="结"></a>结</h3><p>在讨论完栈帧的生成以及退出后，想必已经对函数调用有了很直观的感受了。</p>
+<p>我在此总结如下：</p>
+<p>​    1.函数调用实质是对函数地址的调用。当我们使用calll指令调用函数时，实质是把函数地址置入eip寄存器中。【指令】</p>
+<p>​    2.函数调用伴随调用栈的管理，调用函数生成栈帧，退出函数销毁栈帧。</p>
+<p>​    3.调用函数保存局部变量于栈顶，且保存自己的下一条指令地址。</p>
+<p>​    4.当被调用函数退出，调用函数的下一条指令地址位于当前调用栈的栈顶，弹出后eip回到原函数继续执行calll指令以下的指令。</p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2017/09/24/嵌入式处理器/" title= 嵌入式处理器 >
+                    <span>Next Post</span>
+                    <span>嵌入式处理器</span>
+                </a>
+            </li>
+        
+        
+    </ul>
+    <!-- 来必力City版安装代码 -->
+
+    
+
+<!-- City版安装代码已完成 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="emailto:superwenzg@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/superwenzg" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span>
+        <span
+            id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+</footer>
+    </div>
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 5 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/C-类中的动态函数地址问题/" >C++类中的动态函数地址问题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/函数指针与类成员函数指针的区别/" >函数指针与类成员函数指针的区别</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/function-bind-特性解析/" >function & bind 特性解析</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/函数调用的实质/" >函数调用的实质-结合栈帧探讨（Stack Frame）</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/嵌入式处理器/" >嵌入式处理器</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">C++,指针</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">底层</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #888; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+
