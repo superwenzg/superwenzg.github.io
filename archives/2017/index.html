@@ -103,6 +103,70 @@
     
     
         <article class="index-post">
+            <a class="content-show-full" href = "/2017/09/25/C++对象内存模型/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>C++对象内存模型</span>
+                    </h2>
+                <div class="abstract-content">
+                    前言​    在撰写一般函数指针与类成员函数指针的过程中，我不禁对于C++类的内存分配问题产生了好奇。为何类成员函数指针的赋值为
+12class c&#123;public: void hello()&#123;&#125;;&#125;;void (c::*p)() = &amp;c::hello;
+​    众所周知，在C/C++中，函数实质上为地址。对于类中的函数，为何在对指针赋值时，并不需要关注对象本身，而只是将类中的某个函数地址绑定到成员函数指针上呢？
+​    这是否意味着，在类中 成员函数本身并不占用对象存储空间，而保存于类中。 以下，是我对于该问题检索得到的答案的整理，以...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = C++.虚函数表>C++.虚函数表</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 继承>继承</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/25</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2017/09/25/函数指针与类成员函数指针的区别/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>函数指针与类成员函数指针的区别</span>
+                    </h2>
+                <div class="abstract-content">
+                    前言​    在C语言中，曾感受过函数指针的威力。C++也并未摒弃这一强大的开发特性。众所周知，在C++中允许定义类这一种新型的数据类型。那么，在类中定义的函数应当也可以被函数指针所指向并调用。本文就函数指针与类成员函数指针之间的联系与区别展开讨论。
+函数指针回顾123456789101112131415void foo1(int a = 1)&#123;	std::cout&lt;&lt;"foo1 test: "&lt;&lt;a&lt;&lt;std::endl;&#125;int main()&#123;	foo1();  	void (*fooP)(int) = foo1;  ...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 指针>指针</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/25</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="content-show-full" href = "/2017/09/25/function-bind-特性解析/" >
                     <h2 class="abstract-title">
                         
@@ -264,7 +328,23 @@
     
     
     
-    <div class="total-archive"> Total : 3 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 5 </div>
     
     <div class="post-archive">
     
@@ -273,6 +353,16 @@
     
     <div class="archive-year"> 2017 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/C++对象内存模型/" >C++对象内存模型</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/函数指针与类成员函数指针的区别/" >函数指针与类成员函数指针的区别</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -293,6 +383,14 @@
   </div>
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">C++.虚函数表</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">继承</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">C++</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">指针</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">底层</a></span>
     
