@@ -109,8 +109,8 @@
                         <span>函数指针与类成员函数指针的区别</span>
                     </h2>
                 <div class="abstract-content">
-                    前言​    在C语言中，曾感受过函数指针的威力。C++也并未摒弃这一强大的开发特性。众所周知，在C++中允许定义类这一种新型的数据类型。那么，在类中定义的函数应当也可以被函数指针所指向并调用。在撰写本文之前，本人本以为指向类成员函数的指针是可以绕开类而独立存在的。本文就函数指针与类成员函数指针之间的联系与区别展开讨论。
-函数指针回顾123456789101112131415void foo1(int a = 1)&#123;	std::cout&lt;&lt;"foo1 test: "&lt;&lt;a&lt;&lt;std::endl;&#125;int main()&#123;	f...
+                    前言​    在C语言中，曾感受过函数指针的威力。C++也并未摒弃这一强大的开发特性。众所周知，在C++中允许定义类这一种新型的数据类型。那么，在类中定义的函数应当也可以被函数指针所指向并调用。本文就函数指针与类成员函数指针之间的联系与区别展开讨论。
+函数指针回顾123456789101112131415void foo1(int a = 1)&#123;	std::cout&lt;&lt;"foo1 test: "&lt;&lt;a&lt;&lt;std::endl;&#125;int main()&#123;	foo1();  	void (*fooP)(int) = foo1;  ...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -232,7 +232,7 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/C-类中的动态函数地址问题/" >C++类中的动态函数地址问题</a>
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/C++对象内存模型/" >C++对象内存模型</a>
         </li>
     
     
@@ -259,6 +259,8 @@
   </div>
         <div class="sidebar-tags">
     <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">C++</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">C++,指针</a></span>
     
