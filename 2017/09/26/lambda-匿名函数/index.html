@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
+    <title>
+        
+        lambda - 匿名函数 · DiuR21Laonnu&#39;s sites
+        
+    </title>
+    <link rel="icon" href= /assests/favicon.ico>
+    <!-- 提前加载place holder  -->
+    <style>
+        @font-face {
+            font-family: 'Oswald-Regular';
+            src: url('/font/Oswald-Regular.ttf');
+        }
+        @font-face {
+            font-family: 'Source Sans Pro';
+            src: url('/font/Source Sans Pro.woff'),
+            url('/font/Source Sans Pro.woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Source Code Pro';
+            src: url('/font/SourceCodePro-Regular.ttf.woff'),
+            url('/font/SourceCodePro-Regular.ttf.woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        
+        .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0px;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2s ease-out 0s 1;
+        }
+        @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        99% {
+            transform: translate3d(0, 0, 0);
+        }
+        99.1% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(-226px, 0, 0);
+        }
+    }
+    </style>
+    <link rel="stylesheet" href = "/css/style.css?v=20170912" />
+    <script src="//cdn.staticfile.org/jquery/3.2.1/jquery.min.js" defer></script>
+    
+    <script src="/scripts/main.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >DiuR21Laonnu</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">lambda - 匿名函数</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>DiuR21Laonnu</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-img" style="background-image: url(http://ok8er9pip.bkt.clouddn.com/postbanner.jpg)"></div>
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            lambda - 匿名函数
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+        </p>
+        <!-- 404 -->
+        
+        <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = lambda>lambda</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = c++>c++</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = c++11>c++11</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/09/26</span>
+            </div>
+        
+    </div>
+</div>
+        <div class="container">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​    Github上大量的C++代码运用了lambda表达式，因为之前对该特性的忽略甚至说是误解导致没有认真的深入学习lambda表达式。对代码的学习产生了阻碍。</p>
+<p>​    本文是对C++ 下 lambda表达式的介绍以及总结</p>
+<h2 id="Lambda表达式"><a href="#Lambda表达式" class="headerlink" title="Lambda表达式"></a>Lambda表达式</h2><p>​    Lambda 函数又称匿名函数，亦即是为<strong>没有名字的函数</strong>。通常用于封装传递给算法或异步方法的少量代码行。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;  </span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;  </span></span></div><div class="line">  </div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">abssort</span><span class="params">(<span class="keyword">float</span>* x, <span class="keyword">unsigned</span> n)</span> </span>&#123;  </div><div class="line">    <span class="built_in">std</span>::sort(x, x + n,  </div><div class="line">        <span class="comment">// Lambda expression begins  </span></div><div class="line">        [](<span class="keyword">float</span> a, <span class="keyword">float</span> b) &#123;  </div><div class="line">            <span class="keyword">return</span> (<span class="built_in">std</span>::<span class="built_in">abs</span>(a) &lt; <span class="built_in">std</span>::<span class="built_in">abs</span>(b));  </div><div class="line">        &#125; <span class="comment">// end of lambda expression  </span></div><div class="line">    );  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="https://i-msdn.sec.s-msft.com/dynimg/IC251606.jpeg" alt="pic1"></p>
+<ol>
+<li><strong>Capture 子句</strong>（在 C++ 规范中也称为 <em>lambda 引导</em>。）</li>
+<li><strong>参数列表</strong>（可选）。 （也称为 <em>lambda 声明符</em>)</li>
+<li><strong>可变规范</strong>（可选）。</li>
+<li><strong>异常规范</strong>（可选）。</li>
+<li><strong>尾随返回类型</strong>（可选）。</li>
+<li><strong>“lambda 体”</strong></li>
+</ol>
+<hr>
+<h3 id="Capture子句"><a href="#Capture子句" class="headerlink" title="Capture子句"></a>Capture子句</h3><pre><code>#### Capture子句功能演示
+</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> a = <span class="number">1</span>;</div><div class="line">        <span class="keyword">auto</span> lFuc = [=]()&#123; <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;&#125;;</div><div class="line">        lFuc();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//results:</span></div><div class="line"><span class="number">1</span></div></pre></td></tr></table></figure>
+<p>​    对比程序</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> a = <span class="number">1</span>;</div><div class="line">        <span class="keyword">auto</span> lFuc = [=]()&#123; <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;&#125;;</div><div class="line">        lFuc();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">auto</span> lFuc = [=]() &#123; <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;&#125;;</div><div class="line">    lFuc();</div><div class="line">&#125;</div><div class="line"><span class="comment">//error</span></div></pre></td></tr></table></figure>
+<p>观察上述两段代码，Capture子句（ C++规范中也被称为 <strong>lambda引导</strong>）指导了lambda语句获取变量的方式。而Capture子句获取变量的范围是有作用域统治的。</p>
+<h4 id="捕获变量的一些规则"><a href="#捕获变量的一些规则" class="headerlink" title="捕获变量的一些规则"></a>捕获变量的一些规则</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">[] <span class="comment">//不捕获变量</span></div><div class="line">[=] <span class="comment">//所有值，按值捕获</span></div><div class="line">[&amp;] <span class="comment">//所有值，按引用捕获</span></div><div class="line"></div><div class="line">truct S &#123; <span class="keyword">void</span> f(<span class="keyword">int</span> i); &#125;;  </div><div class="line">  </div><div class="line"><span class="keyword">void</span> S::f(<span class="keyword">int</span> i) &#123;  </div><div class="line">    [&amp;, i]&#123;&#125;;    <span class="comment">// OK  </span></div><div class="line">    [&amp;, &amp;i]&#123;&#125;;   <span class="comment">// ERROR: i preceded by &amp; when &amp; is the default  </span></div><div class="line">    [=, <span class="keyword">this</span>]&#123;&#125;; <span class="comment">// ERROR: this when = is the default  </span></div><div class="line">    [i, i]&#123;&#125;;    <span class="comment">// ERROR: i repeated  </span></div><div class="line">&#125;  </div><div class="line"></div><div class="line"><span class="comment">//默认使用&amp;,则不可对于具体变量使用&amp;引用捕获。</span></div></pre></td></tr></table></figure>
+<h4 id="使用capture子句应注意的细则"><a href="#使用capture子句应注意的细则" class="headerlink" title="使用capture子句应注意的细则"></a>使用capture子句应注意的细则</h4><ul>
+<li>引用捕获可用于修改外部变量，而值捕获却不能实现此操作。 （<code>mutable</code>允许修改副本，而不能修改原始项。）</li>
+<li>引用捕获会反映外部变量的更新，而值捕获却不会反映。</li>
+<li>引用捕获引入生存期依赖项，而值捕获却没有生存期依赖项。 当 lambda 以异步方式运行时，这一点尤其重要。 如果在异步 lambda 中通过引用捕获本地变量，该本地变量将很可能在 lambda 运行时消失，从而导致运行时访问冲突。</li>
+</ul>
+<hr>
+<p>####参数列表</p>
+<p>​    lambda可以接受输入参数。参数列表是可选的。类似于函数的参数列表</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">auto</span> y = [] (<span class="keyword">int</span> first, <span class="keyword">int</span> second)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">return</span> first + second;</div><div class="line">    &#125;;</div><div class="line">    </div><div class="line">    <span class="built_in">cout</span>&lt;&lt;y(<span class="number">1</span>,<span class="number">2</span>)&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//results</span></div><div class="line"><span class="comment">//3</span></div></pre></td></tr></table></figure>
+<hr>
+<h4 id="可变规范（可选）"><a href="#可变规范（可选）" class="headerlink" title="可变规范（可选）"></a>可变规范（可选）</h4><p>​    通常，lambda 的函数调用操作是 const-by-value的，不会生成可变的数据成员，但使用 <strong>mutable</strong> 关键字可以改变这个情况。使用 <strong>mutable </strong>关键字可以在lambda 表达式的主体内修改值变量。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">    <span class="keyword">int</span> i = <span class="number">1</span>;</div><div class="line">    <span class="keyword">auto</span> y = [i] (<span class="keyword">int</span> first, <span class="keyword">int</span> second) </div><div class="line">	<span class="keyword">mutable</span><span class="comment">//若不添加mutable关键字，则编译错误</span></div><div class="line">    &#123;</div><div class="line">        i++;</div><div class="line">    &#125;;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="built_in">endl</span>;</div><div class="line"><span class="comment">//result</span></div><div class="line"><span class="comment">//i = 1;</span></div></pre></td></tr></table></figure>
+<hr>
+<h4 id="异常规范（可选）"><a href="#异常规范（可选）" class="headerlink" title="异常规范（可选）"></a>异常规范（可选）</h4><p>​    暂不明白</p>
+<h4 id="返回类型"><a href="#返回类型" class="headerlink" title="返回类型"></a>返回类型</h4><p>​    lambda表达式自动推导饭回来行。除非指定尾随返回类型。<strong>指定尾随类型</strong>类似于普通方法或函数的返回类型部分。但是，返回类型必须在参数列表后方，必须要指定尾随类型前使用关键字 -&gt;</p>
+<h2 id="结"><a href="#结" class="headerlink" title="结"></a>结</h2><p>lambda初步学习完毕= =…</p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2017/09/26/可变参数模版/" title= 可变参数模版 >
+                    <span>Previous Post</span>
+                    <span>可变参数模版</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 来必力City版安装代码 -->
+
+    
+
+<!-- City版安装代码已完成 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="emailto:superwenzg@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="https://github.com/superwenzg" class="iconfont-archer github" target="_blank" title="github"></a>
+            
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span>
+        <span
+            id="theme-info">Theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+        <span id="busuanzi_container_site_pv">Welcome, No. <span id="busuanzi_value_site_pv"></span>
+        </span>
+    </div>
+    
+</footer>
+    </div>
+    <div class="back-top">&#xe639;</div>
+    <div class="sidebar">
+    <div class="sidebar-header">
+        <div class="sidebar-category">
+            <span class="sidebar-archive-link"><span class="iconfont-archer">&#xe67d;</span>Archive</span>
+            <span class="sidebar-tags-link"><span class="iconfont-archer">&#xe610;</span>Tag</span>
+        </div>
+    </div>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-archive">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 8 </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2017/09/26/lambda-匿名函数/" >lambda - 匿名函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2017/09/26/可变参数模版/" >可变参数模版</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2017/09/26/计算机时钟/" >计算机时钟</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/C++对象内存模型/" >C++对象内存模型</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/函数指针与类成员函数指针的区别/" >函数指针与类成员函数指针的区别</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/function-bind-特性解析/" >function & bind 特性解析</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/嵌入式处理器/" >嵌入式处理器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/函数调用的实质/" >函数调用的实质-结合栈帧探讨（Stack Frame）</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name"><a href= "#">lambda</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">c++</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">c++11</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">C++</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">指针</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">底层</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">虚函数表</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">继承</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">时钟</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">计算机原理</a></span>
+    
+    </div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #888; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+
