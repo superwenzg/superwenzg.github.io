@@ -103,13 +103,20 @@
     
     
         <article class="index-post">
-            <a class="content-show-full" href = "/2017/09/26/C-atomic/" >
+            <a class="content-show-full" href = "/2017/09/26/c-并发编程之thread/" >
                     <h2 class="abstract-title">
                         
-                        <span>C++ atomic</span>
+                        <span>c++ 并发编程之thread</span>
                     </h2>
                 <div class="abstract-content">
-                    
+                    前言​    网络中，关于并发编程的书籍或者文章都很多。可给我的感觉都有生搬硬套之嫌。很多文章，概念模糊，只是停留于概念的paste。因而萌生了写下并发编程系列文章的想法。
+#include ​    线程，在标准中被定义为：
+​        独立的执行线程类
+​                        —-Class to represent individual threads of execution.
+
+​    线程的构造函数如上：
+​    1.默认构造函数：创建一个空的thread对象
+​    2.初始化构造函数：创建一个thread对象，该对象可调用fn函数，参...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -117,9 +124,11 @@
                 
                 <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = c++>c++</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-href = atomic>atomic</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = 并发编程>并发编程</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = thread>thread</a>
     
 </div>
                 
@@ -133,17 +142,16 @@
     
     
         <article class="index-post">
-            <a class="content-show-full" href = "/2017/09/25/C++对象内存模型/" >
+            <a class="content-show-full" href = "/2017/09/26/lambda-匿名函数/" >
                     <h2 class="abstract-title">
                         
-                        <span>C++对象内存模型</span>
+                        <span>lambda - 匿名函数</span>
                     </h2>
                 <div class="abstract-content">
-                    前言​    在撰写一般函数指针与类成员函数指针的过程中，我不禁对于C++类的内存分配问题产生了好奇。为何类成员函数指针的赋值为
-12class c&#123;public: void hello()&#123;&#125;;&#125;;void (c::*p)() = &amp;c::hello;
-​    众所周知，在C/C++中，函数实质上为地址。对于类中的函数，为何在对指针赋值时，并不需要关注对象本身，而只是将类中的某个函数地址绑定到成员函数指针上呢？
-​    这是否意味着，在类中 成员函数本身并不占用对象存储空间，而保存于类中。
-​    图说C++对象模型：对象内存布局详...
+                    前言​    Github上大量的C++代码运用了lambda表达式，因为之前对该特性的忽略甚至说是误解导致没有认真的深入学习lambda表达式。对代码的学习产生了阻碍。
+​    本文是对C++ 下 lambda表达式的介绍以及总结
+Lambda表达式​    Lambda 函数又称匿名函数，亦即是为没有名字的函数。通常用于封装传递给算法或异步方法的少量代码行。
+1234567891011#include &lt;algorithm&gt;  #include &lt;cmath&gt;    void abssort(float* x, unsigned n) &#123;     ...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -151,48 +159,17 @@
                 
                 <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = c++>c++</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-href = 虚函数表>虚函数表</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = lambda>lambda</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-href = 继承>继承</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/25</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/09/25/函数指针与类成员函数指针的区别/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>函数指针与类成员函数指针的区别</span>
-                    </h2>
-                <div class="abstract-content">
-                    前言​    在C语言中，曾感受过函数指针的威力。C++也并未摒弃这一强大的开发特性。众所周知，在C++中允许定义类这一种新型的数据类型。那么，在类中定义的函数应当也可以被函数指针所指向并调用。本文就函数指针与类成员函数指针之间的联系与区别展开讨论。
-函数指针回顾123456789101112131415void foo1(int a = 1)&#123;	std::cout&lt;&lt;"foo1 test: "&lt;&lt;a&lt;&lt;std::endl;&#125;int main()&#123;	foo1();  	void (*fooP)(int) = foo1;  ...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 指针>指针</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = c++11>c++11</a>
     
 </div>
                 
                 <!-- date  -->
                 <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/25</span>
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/26</span>
                 </div>
             </div>
         </article>
@@ -367,10 +344,6 @@
     
     
     
-    
-    
-    
-    
     <div class="total-archive"> Total : 11 </div>
     
     <div class="post-archive">
@@ -383,12 +356,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2017/09/26/c-mutex互斥锁/" >c++ mutex互斥锁</a>
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2017/09/26/c-并发编程之thread/" >c++ 并发编程之thread</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2017/09/26/c-并发编程之thread/" >c++ 并发编程之thread</a>
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2017/09/26/c-mutex互斥锁/" >c++ mutex互斥锁</a>
         </li>
     
     
@@ -418,12 +391,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/函数指针与类成员函数指针的区别/" >函数指针与类成员函数指针的区别</a>
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/function-bind-特性解析/" >function & bind 特性解析</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/function-bind-特性解析/" >function & bind 特性解析</a>
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/函数指针与类成员函数指针的区别/" >函数指针与类成员函数指针的区别</a>
         </li>
     
     
@@ -455,24 +428,68 @@
     
         <span class="sidebar-tag-name"><a href= "#">thread</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">指针</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">底层</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">lambda</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">c++11</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">指针</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">时钟</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">计算机原理</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
     缺失模块。<br/>
     1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #888; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tag-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var jsInfo = {
+        root: '/'
+    }
+</script>
+    <!-- 不蒜子  -->
+    
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ统计  -->
+    
+    </div>
+    </body>
+</html>
+
+
+�确保node版本大于6.2<br/>
     2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
     <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
     3、在根目录_config.yml里添加配置：
