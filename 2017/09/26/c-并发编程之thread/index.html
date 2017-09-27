@@ -149,7 +149,7 @@
 <p>​    3.复制构造函数：删除复制构造函数</p>
 <p>​    4.移动构造函数：thread对象，可使用移动构造函数构造。</p>
 <p>以下为各类构造函数构造thread对象的示例：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo1</span><span class="params">(<span class="keyword">int</span> a ,<span class="keyword">int</span> b)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"foo1 result:"</span> &lt;&lt; a + b &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">std</span>::thread t;</div><div class="line">    <span class="built_in">std</span>::<span class="function">thread <span class="title">t1</span><span class="params">(foo1, <span class="number">1</span>, <span class="number">2</span>)</span></span>;</div><div class="line">    t1.join();</div><div class="line">    <span class="built_in">std</span>::<span class="function">thread <span class="title">t2</span><span class="params">(foo1, <span class="number">2</span>, <span class="number">4</span>)</span></span>;</div><div class="line">    <span class="built_in">std</span>::thread t3 = <span class="built_in">std</span>::move(t2);</div><div class="line">    t3.join();</div><div class="line">    <span class="keyword">if</span>( !t2.joinable() )</div><div class="line">        <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"t2 not exist"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//results:</span></div><div class="line"><span class="comment">//3</span></div><div class="line"><span class="comment">//6</span></div><div class="line"><span class="comment">//t2 not exist</span></div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;thread&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">foo1</span><span class="params">(<span class="keyword">int</span> a ,<span class="keyword">int</span> b)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"foo1 result:"</span> &lt;&lt; a + b &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="built_in">std</span>::thread t;</div><div class="line">	<span class="built_in">std</span>::<span class="function">thread <span class="title">t1</span><span class="params">(foo1, <span class="number">1</span>, <span class="number">2</span>)</span></span>;</div><div class="line">	t1.join();</div><div class="line">	<span class="built_in">std</span>::<span class="function">thread <span class="title">t2</span><span class="params">(foo1, <span class="number">2</span>, <span class="number">4</span>)</span></span>;</div><div class="line">	<span class="built_in">std</span>::thread t3 = <span class="built_in">std</span>::move(t2);</div><div class="line">	t3.join();</div><div class="line">	<span class="keyword">if</span>( !t2.joinable() )</div><div class="line">		<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">"t2 not exist"</span> &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//results:</span></div><div class="line"><span class="comment">//3</span></div><div class="line"><span class="comment">//6</span></div><div class="line"><span class="comment">//t2 not exist</span></div></pre></td></tr></table></figure>
 <hr>
 <p><img src="http://ok8er9pip.bkt.clouddn.com/thread-pic2.png" alt="pic2"></p>
 <ul>
@@ -367,8 +367,6 @@
     
     
     
-    
-    
     <div class="total-archive"> Total : 11 </div>
     
     <div class="post-archive">
@@ -453,19 +451,19 @@
     
         <span class="sidebar-tag-name"><a href= "#">thread</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">底层</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">lambda</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">c++11</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">指针</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
+        <span class="sidebar-tag-name"><a href= "#">底层</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">时钟</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">计算机原理</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
