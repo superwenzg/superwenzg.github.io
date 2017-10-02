@@ -103,14 +103,16 @@
     
     
         <article class="index-post">
-            <a class="content-show-full" href = "/2017/09/25/函数指针与类成员函数指针的区别/" >
+            <a class="content-show-full" href = "/2017/09/26/可变参数模版/" >
                     <h2 class="abstract-title">
                         
-                        <span>函数指针与类成员函数指针的区别</span>
+                        <span>可变参数模版</span>
                     </h2>
                 <div class="abstract-content">
-                    前言​    在C语言中，曾感受过函数指针的威力。C++也并未摒弃这一强大的开发特性。众所周知，在C++中允许定义类这一种新型的数据类型。那么，在类中定义的函数应当也可以被函数指针所指向并调用。本文就函数指针与类成员函数指针之间的联系与区别展开讨论。
-函数指针回顾123456789101112131415void foo1(int a = 1)&#123;	std::cout&lt;&lt;"foo1 test: "&lt;&lt;a&lt;&lt;std::endl;&#125;int main()&#123;	foo1();  	void (*fooP)(int) = foo1;  ...
+                    前言​    初接触类模版与函数模版时，虽然感觉这是C++与C对比非常不一样的一个特性。可是也就仅此，固定数量的模版参数，并未让我感觉到这是一项多么酷炫的特性。
+​    而在C++11中，C++引入了一项新特性。这项特性允许开发者表示0到任意个数、类型的参数。
+基本语法12template&lt;typename t&gt; class classname; //c++03/98 beftemplate&lt;typename... Arguments&gt; class classname; //c++11 lat
+
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -120,13 +122,15 @@
     
         <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-href = 指针>指针</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = 可变参数模版>可变参数模版</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 泛化>泛化</a>
     
 </div>
                 
                 <!-- date  -->
                 <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/25</span>
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/26</span>
                 </div>
             </div>
         </article>
