@@ -140,7 +140,17 @@
     <article class="article-entry">
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​    初接触类模版与函数模版时，虽然感觉这是C++与C对比非常不一样的一个特性。可是也就仅此，固定数量的模版参数，并未让我感觉到这是一项多么酷炫的特性。</p>
 <p>​    而在C++11中，C++引入了一项新特性。这项特性允许开发者表示0到任意个数、类型的参数。</p>
-<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> t&gt; <span class="class"><span class="keyword">class</span> <span class="title">classname</span>;</span> <span class="comment">//c++03/98 bef</span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span>... Arguments&gt; <span class="class"><span class="keyword">class</span> <span class="title">classname</span>;</span> <span class="comment">//c++11 lat</span></div></pre></td></tr></table></figure>
+<p>参考：</p>
+<p>​    <a href="https://www.wikiwand.com/zh-hans/可变参数模板" target="_blank" rel="external">wiki</a></p>
+<p>​    </p>
+<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">void</span> <span class="title">fucc</span><span class="params">(T t)</span></span>; <span class="comment">//c++03/98 bef</span></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span>... Arguments&gt; <span class="function"><span class="keyword">void</span> <span class="title">fuc</span><span class="params">(Arguments... args)</span></span>; <span class="comment">//c++11 lat</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  	fucc(<span class="number">1</span>);</div><div class="line">  	fuc(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在模版参数的左侧出现省略号…,声明一个参数包（parameter pack）。</p>
+<p>而省略号出现在包含参数包的表达式的右侧，则把这个参数包解开为一组实参，使得在省略号前的整个表达式使用每个被解开的实参完成求值，所有表达式求值结果被逗号分开。</p>
+<h1 id="参数包处理"><a href="#参数包处理" class="headerlink" title="参数包处理"></a>参数包处理</h1><p>初见参数包展开，想必可能会心存幻想。认为参数包传递后，对于参数的使用是十足所见即所得的。然而事实是，参数包的处理需要各种奇淫巧技。</p>
+<p>主要的方法有：</p>
+<p>​    递归使用</p>
+<p>​    哑扩展标记</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">tfuc</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"tfuc end"</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T,<span class="keyword">typename</span>... Args&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">tfuc</span><span class="params">(T t,Args... args)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; t &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    tfuc( args... );</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="function">T <span class="title">prin</span><span class="params">(T t)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; t &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> t;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span>... Args&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">pass</span><span class="params">(Args... args)</span></span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span>... Args&gt;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">tfuc2</span><span class="params">(Args... args)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    pass( prin(args)... );</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    tfuc(<span class="number">1</span>,<span class="string">"hello"</span>);</div><div class="line">    tfuc2(<span class="number">2</span>,<span class="string">"world"</span>);</div><div class="line">    </div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
     </article>
     <!-- 前后页  -->
@@ -326,7 +336,14 @@
     
     
     
-    <div class="total-archive"> Total : 10 </div>
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 11 </div>
     
     <div class="post-archive">
     
@@ -335,6 +352,11 @@
     
     <div class="archive-year"> 2017 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/c-good-articles/" >c++ good articles</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -368,22 +390,22 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/函数指针与类成员函数指针的区别/" >函数指针与类成员函数指针的区别</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/function-bind-特性解析/" >function & bind 特性解析</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/函数调用的实质/" >函数调用的实质-结合栈帧探讨（Stack Frame）</a>
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/函数指针与类成员函数指针的区别/" >函数指针与类成员函数指针的区别</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/嵌入式处理器/" >嵌入式处理器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/函数调用的实质/" >函数调用的实质-结合栈帧探讨（Stack Frame）</a>
         </li>
     
     </div>
@@ -399,6 +421,8 @@
     
         <span class="sidebar-tag-name"><a href= "#">atomic</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">RAII</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">lambda</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">c++</a></span>
@@ -409,9 +433,9 @@
     
         <span class="sidebar-tag-name"><a href= "#">指针</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">底层</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">可变参数模版</a></span>
     
