@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        DiuR21Laonnu&#39;s sites
+        make_shared vs shared_ptr 对比 · DiuR21Laonnu&#39;s sites
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -68,11 +68,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >DiuR21Laonnu</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">make_shared vs shared_ptr 对比</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>DiuR21Laonnu</a>
 </header>
@@ -80,147 +91,83 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://ok8er9pip.bkt.clouddn.com/postbanner.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            make_shared vs shared_ptr 对比
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+        </p>
+        <!-- 404 -->
+        
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = c++>c++</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 内存>内存</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = smart pointer>smart pointer</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/10/07</span>
+            </div>
         
     </div>
 </div>
         <div class="container">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>参考:</p>
+<p>​    <a href="https://stackoverflow.com/questions/20895648/difference-in-make-shared-and-normal-shared-ptr-in-c" target="_blank" rel="external">stackoverflow</a></p>
+<h1 id="make-shared-amp-shared-ptr"><a href="#make-shared-amp-shared-ptr" class="headerlink" title="make_shared &amp; shared_ptr"></a>make_shared &amp; shared_ptr</h1><p>​    初见make_shared &amp; shared_ptr，感到非常的疑惑。为何？首先，观察以下代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ts</span>&#123;</span> <span class="keyword">static</span> <span class="keyword">int</span> a = <span class="number">1</span>&#125;;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">auto</span> ptr_1 = <span class="built_in">std</span>::<span class="built_in">shared_ptr</span>(ts);</div><div class="line">	<span class="keyword">auto</span> ptr_2 = <span class="built_in">std</span>::make_shared(ts);</div><div class="line">  	</div><div class="line">  	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	test();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2017/10/10/mysql-起源/" title= MySql --起源 >
+                    <span>Next Post</span>
+                    <span>MySql --起源</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2017/10/04/C++ mutex/" title= C++ mutex解析 >
+                    <span>Previous Post</span>
+                    <span>C++ mutex解析</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 来必力City版安装代码 -->
+
     
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/09/25/函数指针与类成员函数指针的区别/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>函数指针与类成员函数指针的区别</span>
-                    </h2>
-                <div class="abstract-content">
-                    前言​    在C语言中，曾感受过函数指针的威力。C++也并未摒弃这一强大的开发特性。众所周知，在C++中允许定义类这一种新型的数据类型。那么，在类中定义的函数应当也可以被函数指针所指向并调用。本文就函数指针与类成员函数指针之间的联系与区别展开讨论。
-函数指针回顾123456789101112131415void foo1(int a = 1)&#123;	std::cout&lt;&lt;"foo1 test: "&lt;&lt;a&lt;&lt;std::endl;&#125;int main()&#123;	foo1();  	void (*fooP)(int) = foo1;  ...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 指针>指针</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/25</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/09/25/function-bind-特性解析/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>function &amp; bind 特性解析</span>
-                    </h2>
-                <div class="abstract-content">
-                    
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/25</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/09/24/函数调用的实质/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>函数调用的实质-结合栈帧探讨（Stack Frame）</span>
-                    </h2>
-                <div class="abstract-content">
-                    函数调用的实质-结合栈帧探讨（Stack Frame）前言​    在撰写 函数调用的实质 时，接触到了栈帧的概念。
-​    为了更好的理解 函数调用的实质，故对该概念也进行了相关的整理。
-栈帧是什么​    众所周知，栈是一种数据结构。其符合FILO（First in last out) 的原则，该原则在计算机世界中十分的常见。因而栈作为一种数据结构被广泛的使用于计算机中。
-​    在计算机中程序中，调用栈（ Call Stack ） 为程序正在使用的栈空间，由多个嵌套函数所使用的栈帧组成。
-栈帧（ Stack Frame） 即为单个函数所分配的栈空间。
-​    对于栈帧，计算机...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 底层>底层</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/24</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/09/24/嵌入式处理器/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>嵌入式处理器</span>
-                    </h2>
-                <div class="abstract-content">
-                    前言​    在学习嵌入式开发这门课程之前，我对嵌入式处理器一无所知。甚至认为arm处理器与单片机是差不多的东西。本文通过探讨嵌入式处理器的区别，力求在本文中对嵌入式的世界观进行一个初步的梳理。
-嵌入式的定义​    IEEE（Institute of Electrical and Electronics Engineers，美国电气和电子工程师协会）对嵌入式系统的定义：“用于控制、监视或者辅助操作机器和设备的装置”。原文为：Devices Used to Control，Monitor or Assist the Operation of Equipment，Machinery or ...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 嵌入式开发>嵌入式开发</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/24</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <a class="extend prev" rel="prev" href="/archives/">#PREV</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
-    
+
+<!-- City版安装代码已完成 -->
 </main>
             <!-- profile -->
             

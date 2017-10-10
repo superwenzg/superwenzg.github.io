@@ -103,6 +103,44 @@
     
     
         <article class="index-post">
+            <a class="content-show-full" href = "/2017/10/04/C++ mutex/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>C++ mutex解析</span>
+                    </h2>
+                <div class="abstract-content">
+                    什么是mutex互斥锁（Mutual exclusion，缩写Mutex）是一种用于多线程编程中，防止两条线程对同一公共资源（比如全局变量）进行读写的机制。通过将代码分割成一个一个的临界区域（critical section）达成这样的效果。
+C++ mutex在C++11中针对并发编程提供了如下的mutex（各有特性）：
+std::mutex
+std::recursive_mutex
+std::timed_mutex
+std::recursive_timed_mutex
+且还提供了如下用于辅助的模版类：
+template class lock_guard;
+template class...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = mutex>mutex</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/04</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="content-show-full" href = "/2017/10/03/c-good-articles/" >
                     <h2 class="abstract-title">
                         
@@ -110,6 +148,9 @@
                     </h2>
                 <div class="abstract-content">
                     RAIIRAII
+C++ 相关知识点的好文typename的前世今生
+C++11 线程开发相关ibm关于C++11线程库的文章
+async,promise,packed_task对比
 
                 </div>
             </a>
@@ -431,7 +472,50 @@
     
     
     
-    <div class="total-archive"> Total : 11 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 14 </div>
     
     <div class="post-archive">
     
@@ -440,6 +524,21 @@
     
     <div class="archive-year"> 2017 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2017/10/10/mysql-起源/" >MySql --起源</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2017/10/07/make-shared-vs-shared 对比/" >make_shared vs shared_ptr 对比</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/04</span><a class="archive-post-title" href= "/2017/10/04/C++ mutex/" >C++ mutex解析</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -478,22 +577,22 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/function-bind-特性解析/" >function & bind 特性解析</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/函数指针与类成员函数指针的区别/" >函数指针与类成员函数指针的区别</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/函数调用的实质/" >函数调用的实质-结合栈帧探讨（Stack Frame）</a>
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/function-bind-特性解析/" >function & bind 特性解析</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/嵌入式处理器/" >嵌入式处理器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/函数调用的实质/" >函数调用的实质-结合栈帧探讨（Stack Frame）</a>
         </li>
     
     </div>
@@ -503,6 +602,8 @@
     
         <span class="sidebar-tag-name"><a href= "#">C++</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">mutex</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">虚函数表</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">继承</a></span>
@@ -511,17 +612,23 @@
     
         <span class="sidebar-tag-name"><a href= "#">RAII</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">lambda</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">c++</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">内存</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">smart pointer</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">MySql</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">计算机历史</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">指针</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">lambda</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">c++11</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">thread pool</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">指针</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">可变参数模版</a></span>
     
@@ -532,6 +639,8 @@
         <span class="sidebar-tag-name"><a href= "#">时钟</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">计算机原理</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">

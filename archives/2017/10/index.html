@@ -103,6 +103,115 @@
     
     
         <article class="index-post">
+            <a class="content-show-full" href = "/2017/10/10/mysql-起源/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>MySql --起源</span>
+                    </h2>
+                <div class="abstract-content">
+                    MySql 1.初期开源阶段
+2.Sun MySQL阶段
+3.Oracle MySQL阶段
+MySQL是一个 关系型数据库管理系统，在1996年发布了1.0版本。到了同年10月发布了MySQL 3.11.1版本（没有2.x版本）。1999年，瑞典MySQL AB公司成立，Monty牵头开发BDB引擎，因BDB支持事务。所以MySQL也开始支持事务处理了，并且提供众多编程语言接口。
+参考
+版本迭代##Version 3.23（2001）
+版本3.23被认为是MySQL真正诞生的时刻，其开始获得广泛使用。主要改进是引入MYISAM替代了ISAM引擎，引入了全文索引和复制。同年，INnodb创...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = MySql>MySql</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 计算机历史>计算机历史</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/10</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2017/10/07/make-shared-vs-shared 对比/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>make_shared vs shared_ptr 对比</span>
+                    </h2>
+                <div class="abstract-content">
+                    参考:
+​    stackoverflow
+make_shared &amp; shared_ptr​    初见make_shared &amp; shared_ptr，感到非常的疑惑。为何？首先，观察以下代码
+12345678910111213struct ts&#123; static int a = 1&#125;;void test()&#123;	auto ptr_1 = std::shared_ptr(ts);	auto ptr_2 = std::make_shared(ts);  	  	std::cout &lt;&lt; &#125;int main()&#123;...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = c++>c++</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 内存>内存</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = smart pointer>smart pointer</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/07</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2017/10/04/C++ mutex/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>C++ mutex解析</span>
+                    </h2>
+                <div class="abstract-content">
+                    什么是mutex互斥锁（Mutual exclusion，缩写Mutex）是一种用于多线程编程中，防止两条线程对同一公共资源（比如全局变量）进行读写的机制。通过将代码分割成一个一个的临界区域（critical section）达成这样的效果。
+C++ mutex在C++11中针对并发编程提供了如下的mutex（各有特性）：
+std::mutex
+std::recursive_mutex
+std::timed_mutex
+std::recursive_timed_mutex
+且还提供了如下用于辅助的模版类：
+template class lock_guard;
+template class...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = mutex>mutex</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/04</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="content-show-full" href = "/2017/10/03/c-good-articles/" >
                     <h2 class="abstract-title">
                         
@@ -110,6 +219,9 @@
                     </h2>
                 <div class="abstract-content">
                     RAIIRAII
+C++ 相关知识点的好文typename的前世今生
+C++11 线程开发相关ibm关于C++11线程库的文章
+async,promise,packed_task对比
 
                 </div>
             </a>
@@ -140,22 +252,22 @@
                         <span>thread pool 源代码学习</span>
                     </h2>
                 <div class="abstract-content">
-                    未知知识点​    future
+                    未知知识点​    future[o]
 ​    lock_gurad[o]
+​    unique_lock[o]
 ​    size_t [o]
-​    exception
-​    atmoic
-​    conditioRAIIn_variable
+​    exception[o]
+​    atmoic[n]
+​    condition_variable[o]
 ​    可变参数模版[o]
 ​    type_info
 ​    typeid
 ​    std::move[o]
 ​    RAII[o]
-​    forward
-​    result_of
+​    forward[n]
+​    result_of[o]
 size_t​    int小于等于数据线宽度，size_t大于等于地址线宽度
-​    存在意义：地址线宽度历史中经常都大于数据线宽度的。
-lock_gurad中的一个模版类，...
+​    存在意义：地址线宽度...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -342,7 +454,50 @@ lock_gurad中的一个模版类，...
     
     
     
-    <div class="total-archive"> Total : 11 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 14 </div>
     
     <div class="post-archive">
     
@@ -351,6 +506,21 @@ lock_gurad中的一个模版类，...
     
     <div class="archive-year"> 2017 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2017/10/10/mysql-起源/" >MySql --起源</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/07</span><a class="archive-post-title" href= "/2017/10/07/make-shared-vs-shared 对比/" >make_shared vs shared_ptr 对比</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/04</span><a class="archive-post-title" href= "/2017/10/04/C++ mutex/" >C++ mutex解析</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -389,22 +559,22 @@ lock_gurad中的一个模版类，...
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/function-bind-特性解析/" >function & bind 特性解析</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/函数指针与类成员函数指针的区别/" >函数指针与类成员函数指针的区别</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/函数调用的实质/" >函数调用的实质-结合栈帧探讨（Stack Frame）</a>
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/function-bind-特性解析/" >function & bind 特性解析</a>
         </li>
     
     
         <li class="archive-post-item">
             <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/嵌入式处理器/" >嵌入式处理器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/函数调用的实质/" >函数调用的实质-结合栈帧探讨（Stack Frame）</a>
         </li>
     
     </div>
@@ -414,6 +584,8 @@ lock_gurad中的一个模版类，...
     
         <span class="sidebar-tag-name"><a href= "#">C++</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">mutex</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">虚函数表</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">继承</a></span>
@@ -422,17 +594,23 @@ lock_gurad中的一个模版类，...
     
         <span class="sidebar-tag-name"><a href= "#">RAII</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">lambda</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">c++</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">内存</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">smart pointer</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">MySql</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">计算机历史</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">指针</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">lambda</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">c++11</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">thread pool</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">指针</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">可变参数模版</a></span>
     
@@ -443,6 +621,8 @@ lock_gurad中的一个模版类，...
         <span class="sidebar-tag-name"><a href= "#">时钟</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">计算机原理</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
