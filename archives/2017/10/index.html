@@ -136,35 +136,6 @@
     
     
         <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/31/sql_bak2/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>[Untitled Post]</span>
-                    </h2>
-                <div class="abstract-content">
-                    #SELECT SUM(item_price*quantity) AS total_price
-#FROM orderitems;
-#SELECT order_num,SUM(quantity*item_price) AS ordertotal
-#FROM orderitems
-#GROUP BY order_num
-#ORDER BY ordertotal DESC;
-#SELECT vend_name,prod_name,prod_price
-#FROM vendors INNER JOIN products ON vendors.vend_id = products.vend_id...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/31</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
             <a class="content-show-full" href = "/2017/10/30/孤独到了极点？CyberPunk/" >
                     <h2 class="abstract-title">
                         
@@ -191,82 +162,6 @@ Joi​    肉体的欢愉不过一刹，灵魂的相伴长达一生。Joi为了�
                 <!-- date  -->
                 <div class="abstract-date">
                     <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/30</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/25/任务梳理/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>任务梳理</span>
-                    </h2>
-                <div class="abstract-content">
-                    前段时间的可取之处​    学习效率得到了很大的提高
-​    学习进度的保证，比之前好了很多，基本能在dead line之前完成学习任务。
-前段时间的不足之处​    自控力不足，学习的持续性较低
-​    学习的方向性不够强，有种大炮打苍蝇的感觉
-​    
-接下来的计划​    提高自控力，增强计划性
-​    择方向，集中火力打boss
-​    
-自身仍需补全的知识​    unix/linux 系统编程
-​    unix/linux 网络编程
-​    计算机网络
-​    计算机组成
-​    计算机系统-复习
-​    数据库
-​        -MySQL必知必会
-​...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 任务>任务</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/25</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/24/tinyhttpd-1-什么是套接字/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>tinyhttpd - 1 什么是套接字</span>
-                    </h2>
-                <div class="abstract-content">
-                    前言​    于开发简易聊天室时与Socket打过交道，本次学习tinyhttpd再次相遇却感到十分的陌生。想必是之前没有学扎实。因而决定好好的总结一下Socket到底是什么。
-套接字(Socket)​    源IP地址和目的IP地址以及源端口号和目的端口号的组合称为套接字。用于标识客户端请求的服务器和服务。它是网络通信过程中端点的抽象表示，包含进行网络通信必须的五种信息：连接使用的协议，本地主机的IP地址，本地进程的协议端口，远地主机的IP地址，远地进程的协议端口。
-​    Socket=Ip address+ TCP/UDP + port
-套接字分类流套接字（SOCK_STREAM...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = tinyhttpd>tinyhttpd</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 套接字>套接字</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/24</span>
                 </div>
             </div>
         </article>
@@ -431,11 +326,124 @@ make_shared &amp; shared_ptr​    初见make_shared &amp; shared_ptr，感到�
             </div>
         </article>
     
-    <!-- paginator  -->
     
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/archives/2017/10/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/10/page/2/">#NEXT</a>
-    </nav>
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2017/10/04/C++ mutex/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>C++ mutex解析</span>
+                    </h2>
+                <div class="abstract-content">
+                    什么是mutex互斥锁（Mutual exclusion，缩写Mutex）是一种用于多线程编程中，防止两条线程对同一公共资源（比如全局变量）进行读写的机制。通过将代码分割成一个一个的临界区域（critical section）达成这样的效果。
+C++ mutex在C++11中针对并发编程提供了如下的mutex（各有特性）：
+std::mutex
+std::recursive_mutex
+std::timed_mutex
+std::recursive_timed_mutex
+且还提供了如下用于辅助的模版类：
+template class lock_guard;
+template class...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = mutex>mutex</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/04</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2017/10/03/c-good-articles/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>c++ good articles</span>
+                    </h2>
+                <div class="abstract-content">
+                    RAIIRAII
+C++ 相关知识点的好文typename的前世今生
+C++11 线程开发相关ibm关于C++11线程库的文章
+async,promise,packed_task对比
+
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = RAII>RAII</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/03</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2017/10/01/thread-pool-源代码学习/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>thread pool 源代码学习</span>
+                    </h2>
+                <div class="abstract-content">
+                    未知知识点​    future[o]
+​    lock_gurad[o]
+​    unique_lock[o]
+​    size_t [o]
+​    exception[o]
+​    atmoic[n]
+​    condition_variable[o]
+​    可变参数模版[o]
+​    type_info
+​    typeid
+​    std::move[o]
+​    RAII[o]
+​    forward[n]
+​    result_of[o]
+size_t​    int小于等于数据线宽度，size_t大于等于地址线宽度
+​    存在意义：地址线宽度...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = c++>c++</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = thread pool>thread pool</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/01</span>
+                </div>
+            </div>
+        </article>
+    
+    <!-- paginator  -->
     
 </main>
             <!-- profile -->
@@ -697,50 +705,7 @@ make_shared &amp; shared_ptr​    初见make_shared &amp; shared_ptr，感到�
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="total-archive"> Total : 20 </div>
+    <div class="total-archive"> Total : 17 </div>
     
     <div class="post-archive">
     
@@ -757,22 +722,7 @@ make_shared &amp; shared_ptr​    初见make_shared &amp; shared_ptr，感到�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">10/31</span><a class="archive-post-title" href= "/2017/10/31/sql_bak2/" >[Untitled Post]</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">10/30</span><a class="archive-post-title" href= "/2017/10/30/孤独到了极点？CyberPunk/" >孤独到了极点？CyberPunk</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/25</span><a class="archive-post-title" href= "/2017/10/25/任务梳理/" >任务梳理</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/24</span><a class="archive-post-title" href= "/2017/10/24/tinyhttpd-1-什么是套接字/" >tinyhttpd - 1 什么是套接字</a>
         </li>
     
     
@@ -832,12 +782,12 @@ make_shared &amp; shared_ptr​    初见make_shared &amp; shared_ptr，感到�
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/函数指针与类成员函数指针的区别/" >函数指针与类成员函数指针的区别</a>
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/function-bind-特性解析/" >function & bind 特性解析</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/function-bind-特性解析/" >function & bind 特性解析</a>
+            <span class="archive-post-date">09/25</span><a class="archive-post-title" href= "/2017/09/25/函数指针与类成员函数指针的区别/" >函数指针与类成员函数指针的区别</a>
         </li>
     
     
@@ -857,11 +807,11 @@ make_shared &amp; shared_ptr​    初见make_shared &amp; shared_ptr，感到�
     
         <span class="sidebar-tag-name"><a href= "#">C++</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">mutex</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">虚函数表</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">继承</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">mutex</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">F1</a></span>
     
@@ -883,29 +833,23 @@ make_shared &amp; shared_ptr​    初见make_shared &amp; shared_ptr，感到�
     
         <span class="sidebar-tag-name"><a href= "#">thread pool</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">tinyhttpd</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">套接字</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">狂妄</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">自省</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">指针</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">任务</a></span>
+        <span class="sidebar-tag-name"><a href= "#">底层</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">可变参数模版</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">泛化</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">底层</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">心声</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">CyberPunk</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">哲学</a></span>
     
