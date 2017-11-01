@@ -103,16 +103,21 @@
     
     
         <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/07/make-shared-vs-shared 对比/" >
+            <a class="content-show-full" href = "/2017/10/04/C++ mutex/" >
                     <h2 class="abstract-title">
                         
-                        <span>make_shared vs shared_ptr 对比</span>
+                        <span>C++ mutex解析</span>
                     </h2>
                 <div class="abstract-content">
-                    参考:
-​    stackoverflow
-make_shared &amp; shared_ptr​    初见make_shared &amp; shared_ptr，感到非常的疑惑。为何？首先，观察以下代码
-12345678910111213struct ts&#123; static int a = 1&#125;;void test()&#123;	auto ptr_1 = std::shared_ptr(ts);	auto ptr_2 = std::make_shared(ts);  	  	std::cout &lt;&lt; &#125;int main()&#123;...
+                    什么是mutex互斥锁（Mutual exclusion，缩写Mutex）是一种用于多线程编程中，防止两条线程对同一公共资源（比如全局变量）进行读写的机制。通过将代码分割成一个一个的临界区域（critical section）达成这样的效果。
+C++ mutex在C++11中针对并发编程提供了如下的mutex（各有特性）：
+std::mutex
+std::recursive_mutex
+std::timed_mutex
+std::recursive_timed_mutex
+且还提供了如下用于辅助的模版类：
+template class lock_guard;
+template class...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -120,17 +125,15 @@ make_shared &amp; shared_ptr​    初见make_shared &amp; shared_ptr，感到�
                 
                 <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = c++>c++</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-href = 内存>内存</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = smart pointer>smart pointer</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = mutex>mutex</a>
     
 </div>
                 
                 <!-- date  -->
                 <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/07</span>
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/04</span>
                 </div>
             </div>
         </article>
@@ -138,28 +141,17 @@ make_shared &amp; shared_ptr​    初见make_shared &amp; shared_ptr，感到�
     
     
         <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/01/thread-pool-源代码学习/" >
+            <a class="content-show-full" href = "/2017/10/03/c-good-articles/" >
                     <h2 class="abstract-title">
                         
-                        <span>thread pool 源代码学习</span>
+                        <span>c++ good articles</span>
                     </h2>
                 <div class="abstract-content">
-                    未知知识点​    future[o]
-​    lock_gurad[o]
-​    unique_lock[o]
-​    size_t [o]
-​    exception[o]
-​    atmoic[n]
-​    condition_variable[o]
-​    可变参数模版[o]
-​    type_info
-​    typeid
-​    std::move[o]
-​    RAII[o]
-​    forward[n]
-​    result_of[o]
-size_t​    int小于等于数据线宽度，size_t大于等于地址线宽度
-​    存在意义：地址线宽度...
+                    RAIIRAII
+C++ 相关知识点的好文typename的前世今生
+C++11 线程开发相关ibm关于C++11线程库的文章
+async,promise,packed_task对比
+
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -167,15 +159,15 @@ size_t​    int小于等于数据线宽度，size_t大于等于地址线宽度
                 
                 <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = c++>c++</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-href = thread pool>thread pool</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = RAII>RAII</a>
     
 </div>
                 
                 <!-- date  -->
                 <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/01</span>
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/03</span>
                 </div>
             </div>
         </article>
@@ -183,16 +175,18 @@ size_t​    int小于等于数据线宽度，size_t大于等于地址线宽度
     
     
         <article class="index-post">
-            <a class="content-show-full" href = "/2017/09/26/lambda-匿名函数/" >
+            <a class="content-show-full" href = "/2017/09/26/可变参数模版/" >
                     <h2 class="abstract-title">
                         
-                        <span>lambda - 匿名函数</span>
+                        <span>可变参数模版</span>
                     </h2>
                 <div class="abstract-content">
-                    前言​    Github上大量的C++代码运用了lambda表达式，因为之前对该特性的忽略甚至说是误解导致没有认真的深入学习lambda表达式。对代码的学习产生了阻碍。
-​    本文是对C++ 下 lambda表达式的介绍以及总结
-Lambda表达式​    Lambda 函数又称匿名函数，亦即是为没有名字的函数。通常用于封装传递给算法或异步方法的少量代码行。
-1234567891011#include &lt;algorithm&gt;  #include &lt;cmath&gt;    void abssort(float* x, unsigned n) &#123;     ...
+                    前言​    初接触类模版与函数模版时，虽然感觉这是C++与C对比非常不一样的一个特性。可是也就仅此，固定数量的模版参数，并未让我感觉到这是一项多么酷炫的特性。
+​    而在C++11中，C++引入了一项新特性。这项特性允许开发者表示0到任意个数、类型的参数。
+参考：
+​    wiki
+​    
+基本语法12345678template&lt;typename T&gt; void fucc(T t); //c++03/98 beftemplate&lt;typename... Arguments&gt; void fuc(Arguments... args); //c++11 l...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -200,17 +194,84 @@ Lambda表达式​    Lambda 函数又称匿名函数，亦即是为没有名字
                 
                 <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = lambda>lambda</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-href = c++>c++</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = 可变参数模版>可变参数模版</a>
     
-        <a class="post-tag" href="javascript:void(0);" data-href = c++11>c++11</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = 泛化>泛化</a>
     
 </div>
                 
                 <!-- date  -->
                 <div class="abstract-date">
                     <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/26</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2017/09/25/C++对象内存模型/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>C++对象内存模型</span>
+                    </h2>
+                <div class="abstract-content">
+                    前言​    在撰写一般函数指针与类成员函数指针的过程中，我不禁对于C++类的内存分配问题产生了好奇。为何类成员函数指针的赋值为
+12class c&#123;public: void hello()&#123;&#125;;&#125;;void (c::*p)() = &amp;c::hello;
+​    众所周知，在C/C++中，函数实质上为地址。对于类中的函数，为何在对指针赋值时，并不需要关注对象本身，而只是将类中的某个函数地址绑定到成员函数指针上呢？
+​    这是否意味着，在类中 成员函数本身并不占用对象存储空间，而保存于类中。
+​    图说C++对象模型：对象内存布局详...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 虚函数表>虚函数表</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 继承>继承</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/25</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
+            <a class="content-show-full" href = "/2017/09/25/函数指针与类成员函数指针的区别/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>函数指针与类成员函数指针的区别</span>
+                    </h2>
+                <div class="abstract-content">
+                    前言​    在C语言中，曾感受过函数指针的威力。C++也并未摒弃这一强大的开发特性。众所周知，在C++中允许定义类这一种新型的数据类型。那么，在类中定义的函数应当也可以被函数指针所指向并调用。本文就函数指针与类成员函数指针之间的联系与区别展开讨论。
+函数指针回顾123456789101112131415void foo1(int a = 1)&#123;	std::cout&lt;&lt;"foo1 test: "&lt;&lt;a&lt;&lt;std::endl;&#125;int main()&#123;	foo1();  	void (*fooP)(int) = foo1;  ...
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 指针>指针</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/09/25</span>
                 </div>
             </div>
         </article>
@@ -407,41 +468,7 @@ Lambda表达式​    Lambda 函数又称匿名函数，亦即是为没有名字
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <div class="total-archive"> Total : 15 </div>
+    <div class="total-archive"> Total : 13 </div>
     
     <div class="post-archive">
     
@@ -450,11 +477,6 @@ Lambda表达式​    Lambda 函数又称匿名函数，亦即是为没有名字
     
     <div class="archive-year"> 2017 </div>
     <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/31</span><a class="archive-post-title" href= "/2017/10/31/为什么我越发地“狂妄”/" >为什么我越发地“狂妄”</a>
-        </li>
     
     
         <li class="archive-post-item">
@@ -469,11 +491,6 @@ Lambda表达式​    Lambda 函数又称匿名函数，亦即是为没有名字
     
         <li class="archive-post-item">
             <span class="archive-post-date">10/18</span><a class="archive-post-title" href= "/2017/10/18/F1-news-Raikkonen-said-Ferrari-can-still-win-any-of-2017-s-last-four-GPs/" >F1 news Raikkonen said Ferrari can still win any of 2017's last four GPs</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/10</span><a class="archive-post-title" href= "/2017/10/10/虚无主义/" >虚无主义</a>
         </li>
     
     
@@ -533,19 +550,17 @@ Lambda表达式​    Lambda 函数又称匿名函数，亦即是为没有名字
     
         <span class="sidebar-tag-name"><a href= "#">C++</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">mutex</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">虚函数表</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">继承</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">mutex</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">F1</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">news</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">翻译系列</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">RAII</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">lambda</a></span>
     
@@ -557,130 +572,23 @@ Lambda表达式​    Lambda 函数又称匿名函数，亦即是为没有名字
     
         <span class="sidebar-tag-name"><a href= "#">smart pointer</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">thread pool</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">狂妄</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">自省</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">指针</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">底层</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">可变参数模版</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">泛化</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">心声</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">CyberPunk</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">哲学</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">虚无主义</a></span>
-    
-    </div>
-    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-    缺失模块。<br/>
-    1、请确保node版本大于6.2<br/>
-    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
-    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
-    3、在根目录_config.yml里添加配置：
-    <pre style="color: #888; font-size: 0.6rem;">
-jsonContent:
-  meta: false
-  pages: false
-  posts:
-    title: true
-    date: true
-    path: true
-    text: false
-    raw: false
-    content: false
-    slug: false
-    updated: false
-    comments: false
-    link: false
-    permalink: false
-    excerpt: false
-    categories: false
-    tags: true</pre>
-    </div> 
-    <div class="sidebar-tag-list"></div>
-</div>
-    </div>
-</div> 
-    <script>
-    var jsInfo = {
-        root: '/'
-    }
-</script>
-    <!-- 不蒜子  -->
-    
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    
-    <!-- CNZZ统计  -->
-    
-    </div>
-    </body>
-</html>
-
-
->
-        <div class="sidebar-tags">
-    <div class="sidebar-tags-name">
-    
-        <span class="sidebar-tag-name"><a href= "#">C++</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">虚函数表</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">继承</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">mutex</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">F1</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">news</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">翻译系列</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">RAII</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">lambda</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">c++</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">c++11</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">内存</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">smart pointer</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">thread pool</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">狂妄</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">自省</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">指针</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">底层</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">可变参数模版</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">泛化</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">心声</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">CyberPunk</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">可变参数模版</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">泛化</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">哲学</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">虚无主义</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
