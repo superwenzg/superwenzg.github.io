@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        嵌入式处理器 · DiuR21Laonnu&#39;s sites
+        俺は　メジャ　寂しよう · DiuR21Laonnu&#39;s sites
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -81,7 +81,7 @@
                 <a href="/" >DiuR21Laonnu</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">嵌入式处理器</a>
+                <a href="#" class="post-name">俺は　メジャ　寂しよう</a>
             </div>
     </div>
     
@@ -102,7 +102,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            嵌入式处理器
+            俺は　メジャ　寂しよう
             <!-- 404 -->
             
         </h1>
@@ -120,13 +120,13 @@
             
                 <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = 嵌入式开发>嵌入式开发</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = none>none</a>
     
 </div>
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2017/09/24</span>
+                <span class="post-intro-time">2017/11/01</span>
             </div>
         
     </div>
@@ -134,31 +134,20 @@
         <div class="container">
             <main class="main post-page">
     <article class="article-entry">
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​    在学习嵌入式开发这门课程之前，我对嵌入式处理器一无所知。甚至认为<strong>arm处理器与单片机</strong>是差不多的东西。本文通过探讨嵌入式处理器的区别，力求在本文中对嵌入式的世界观进行一个初步的梳理。</p>
-<h3 id="嵌入式的定义"><a href="#嵌入式的定义" class="headerlink" title="嵌入式的定义"></a>嵌入式的定义</h3><p>​    IEEE（Institute of Electrical and Electronics Engineers，美国电气和电子工程师协会）对<a href="https://baike.baidu.com/item/%E5%B5%8C%E5%85%A5%E5%BC%8F%E7%B3%BB%E7%BB%9F" target="_blank" rel="external">嵌入式系统</a>的定义：“用于控制、监视或者辅助操作机器和设备的装置”。原文为：Devices Used to Control，Monitor or Assist the Operation of Equipment，Machinery or Plants。</p>
-<h3 id="回顾处理器（CPU）的定义"><a href="#回顾处理器（CPU）的定义" class="headerlink" title="回顾处理器（CPU）的定义"></a>回顾处理器（CPU）的定义</h3><p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Intel_Core_I7-920_Boxed_-_14.JPG/440px-Intel_Core_I7-920_Boxed_-_14.JPG" alt="pic1"></p>
-<p>​    计算机的主要设备之一，功能主要是<u><strong>解释计算机指令以及处理计算机软件中的数据。</strong></u>    </p>
-<h3 id="嵌入式微控制器（MCU）—单片机"><a href="#嵌入式微控制器（MCU）—单片机" class="headerlink" title="嵌入式微控制器（MCU）—单片机"></a>嵌入式微控制器（MCU）—单片机</h3><p>​    全程单片微型计算机，又称微控制器。是把中央处理器、存储器、定时／计数器、各种输入输出接口等都集成在<strong><u>一块集成电路芯片</u></strong>上的微型计算机。<strong><u>与应用在个人电脑中的通用性微处理器相比，它更强调自供应。</u></strong></p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/STM32F100C4T6B-HD.jpg/640px-STM32F100C4T6B-HD.jpg" alt="pic2"></p>
-<h3 id="嵌入式微处理器（EMPU）—-单板计算机"><a href="#嵌入式微处理器（EMPU）—-单板计算机" class="headerlink" title="嵌入式微处理器（EMPU）— 单板计算机"></a>嵌入式微处理器（EMPU）— 单板计算机</h3><p>​    由通用计算机中的CPU发展而来，主要特点是具有比较高的性能。与计算机CPU不同的是，只保留和嵌入式应用紧密相关的功能硬件，去掉其它的冗余功能部分，因此体积小、重量轻、功耗低、成本低以及可靠性高。与单片机不同，EMPU并不带有外围设备，需要添加RA，ROM等。</p>
-<p><img src="http://ok8er9pip.bkt.clouddn.com/armsoftbank.jpg" alt="pic3"></p>
-<p>​                                    <em>嵌入式微处理的霸主-arm</em></p>
-<h3 id="嵌入式片上系统（SoC）"><a href="#嵌入式片上系统（SoC）" class="headerlink" title="嵌入式片上系统（SoC）"></a>嵌入式片上系统（SoC）</h3><h4 id="IP核-与-架构授权"><a href="#IP核-与-架构授权" class="headerlink" title="IP核 与 架构授权"></a>IP核 与 架构授权</h4><p>​    关于SoC，则绕不过ARM这家伟大的公司。关于ARM很多人的理解可能仅限于听闻。而为何高通处理器、苹果处理器等统统被称作ARM处理器？</p>
-<p>​    这是因为他们的处理器或多或少都是通过ARM授权获得或者改造的。</p>
-<p>​    苹果的Ax系列获得了ARM的指令集授权，在该基础上自行设计SoC。而高通与三星则是获取了ARM架构授权，在此基础上构建自己的SoC。往下还有IP核授权。</p>
-<p>​    SoC是一个将电脑或其他电子系统集成到单一芯片的集成电路。系统芯片可以处理数字信号、模拟信号、混合信号甚至更高频率的信号。SoC为一个产品，是一个有专用目标的集成电路。可以将处理器与一些专用的外围芯片集成到一起，组成一个系统。</p>
+        <p><img src="http://ok8er9pip.bkt.clouddn.com/pic2.jpeg" alt="pic"></p>
+<p>The one who can truly understand u, where are u?</p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
-            <li class="next">
-                <a href= "/2017/09/24/函数调用的实质/" title= 函数调用的实质-结合栈帧探讨（Stack Frame） >
-                    <span>Next Post</span>
-                    <span>函数调用的实质-结合栈帧探讨（Stack Frame）</span>
+        
+            <li class="previous">
+                <a href= "/2017/10/30/孤独到了极点？CyberPunk/" title= 孤独到了极点？CyberPunk >
+                    <span>Previous Post</span>
+                    <span>孤独到了极点？CyberPunk</span>
                 </a>
             </li>
-        
         
     </ul>
     <!-- 来必力City版安装代码 -->
