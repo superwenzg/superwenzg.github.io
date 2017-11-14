@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        DiuR21Laonnu&#39;s sites
+        APUE-socket key words · DiuR21Laonnu&#39;s sites
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -68,11 +68,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >DiuR21Laonnu</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">APUE-socket key words</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>DiuR21Laonnu</a>
 </header>
@@ -80,73 +91,82 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://ok8er9pip.bkt.clouddn.com/postbanner.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            APUE-socket key words
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+        </p>
+        <!-- 404 -->
+        
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = APUE>APUE</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = socket>socket</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/11/09</span>
+            </div>
         
     </div>
 </div>
         <div class="container">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">socket</span> <span class="params">(<span class="keyword">int</span> domain, <span class="keyword">int</span> type, <span class="keyword">int</span> protocol)</span></span>;</div><div class="line"></div><div class="line"><span class="comment">//parameter domain 地址族</span></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">	AF_INET IPv4</span></div><div class="line"><span class="comment">	AFINET6 IPv6</span></div><div class="line"><span class="comment">	AF_UNIX UNIX domain</span></div><div class="line"><span class="comment">	AF_UNSPEC 未指定</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="comment">//parameter type 套接字类型，确定通信特征</span></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">	SOCK_DRGAM 固定长度的、无链接的、不可靠的报文传递</span></div><div class="line"><span class="comment">	SOCK_RAM IP协议的数据包接口</span></div><div class="line"><span class="comment">	SOCK_SEQPACKET 固定长度的、有序的、可靠的、面向连接的报文传递</span></div><div class="line"><span class="comment">	SOCK_STREAM 有序的、可靠的、双向的、面向连接的字节流</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="comment">//parameter protocal</span></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">	IPPROTO_IP		IPv4</span></div><div class="line"><span class="comment">	IPPROTO_IPV6	IPv6</span></div><div class="line"><span class="comment">	IPPROTO_ICMP	因特网控制报文协议</span></div><div class="line"><span class="comment">	IPPROTO_RAW		原始IP数据包协议</span></div><div class="line"><span class="comment">	IPPRATO_TCP		传输控制协议</span></div><div class="line"><span class="comment">	IPPROTO_UDP		用户数据包协议</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+<p><u>调用socket与调用open相类似。在两种情况下，均可获得用于I/O的文件描述符。</u></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/socket.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">shutdown</span> <span class="params">(<span class="keyword">int</span> sockfd, <span class="keyword">int</span> how)</span></span>;</div><div class="line"></div><div class="line"><span class="comment">//parameter how</span></div><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">	SHUT_RD 关闭读端</span></div><div class="line"><span class="comment">	SHUT_WR 关闭写端</span></div><div class="line"><span class="comment">	SHUT_RDWR 无法读取数据，也无法发送数据</span></div><div class="line"><span class="comment">*/</span></div></pre></td></tr></table></figure>
+<h1 id="字节序"><a href="#字节序" class="headerlink" title="字节序"></a>字节序</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// TCP/IP 大端</span></div><div class="line"><span class="comment">// 处理器需要转换到相应的字节序中 4 fuc.</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;arpa/inet.h&gt;</span></span></div><div class="line"><span class="keyword">uint32_t</span> htonl(<span class="keyword">uint32_t</span> hostint32); <span class="comment">//ret 以网络字节序表示的32位整数</span></div><div class="line"></div><div class="line"><span class="keyword">uint16_t</span> htons(<span class="keyword">uint16_t</span> hostint16); <span class="comment">//ret ~~~ 16位整数</span></div><div class="line"></div><div class="line"><span class="keyword">uint32_t</span> ntoh1(<span class="keyword">uint32_t</span> netint32);  <span class="comment">//ret ~~~ 以主机字节序表示的32位整数</span></div><div class="line"></div><div class="line"><span class="keyword">uint16_t</span> ntohs(<span class="keyword">uint16_t</span> netint16);  <span class="comment">//ret ~~~ 16位整数</span></div></pre></td></tr></table></figure>
+<h1 id="地址格式"><a href="#地址格式" class="headerlink" title="地址格式"></a>地址格式</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 一个地址标识一个特定通信域的套接字端点，地址格式与这个特定的通信域相关。</span></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr</span>&#123;</span></div><div class="line">  <span class="keyword">sa_family_t</span> sa_family;</div><div class="line">  <span class="keyword">char</span>	sa_data[];</div><div class="line">  .</div><div class="line">  .</div><div class="line">  .</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="comment">//因特网地址定义在&lt;netinet/in.h&gt;头文件中。在IPv4因特网域（AF_INET）中，套接字地址用结构sockaddr_in表示：</span></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">in_addr</span>&#123;</span></div><div class="line">  <span class="keyword">in_addr_t</span> s_addr; <span class="comment">// IPv4 address</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span>&#123;</span></div><div class="line">	<span class="keyword">sa_family_t</span> sin_family;</div><div class="line">  	<span class="keyword">in_port_t</span>	sin_port;</div><div class="line">  	<span class="class"><span class="keyword">struct</span> <span class="title">in_addr</span>	<span class="title">sin_addr</span>;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2017/11/14/unp-1-简介/" title= unp-1 简介 >
+                    <span>Next Post</span>
+                    <span>unp-1 简介</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2017/11/09/学习计划总结/" title= 学习计划总结 >
+                    <span>Previous Post</span>
+                    <span>学习计划总结</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 来必力City版安装代码 -->
+
     
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/01/thread-pool-源代码学习/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>thread pool 源代码学习</span>
-                    </h2>
-                <div class="abstract-content">
-                    未知知识点​    future[o]
-​    lock_gurad[o]
-​    unique_lock[o]
-​    size_t [o]
-​    exception[o]
-​    atmoic[n]
-​    condition_variable[o]
-​    可变参数模版[o]
-​    type_info
-​    typeid
-​    std::move[o]
-​    RAII[o]
-​    forward[n]
-​    result_of[o]
-size_t​    int小于等于数据线宽度，size_t大于等于地址线宽度
-​    存在意义：地址线宽度...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = c++>c++</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = thread pool>thread pool</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/01</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
+
+<!-- City版安装代码已完成 -->
 </main>
             <!-- profile -->
             

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        DiuR21Laonnu&#39;s sites
+        unp-1 简介 · DiuR21Laonnu&#39;s sites
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -68,11 +68,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >DiuR21Laonnu</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">unp-1 简介</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>DiuR21Laonnu</a>
 </header>
@@ -80,73 +91,84 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://ok8er9pip.bkt.clouddn.com/postbanner.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            unp-1 简介
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+        </p>
+        <!-- 404 -->
+        
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = unp>unp</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/11/14</span>
+            </div>
         
     </div>
 </div>
         <div class="container">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="socket-server"><a href="#socket-server" class="headerlink" title="socket - server"></a>socket - server</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"unp.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> **argv)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  	<span class="keyword">int</span> listenfd, connfd;</div><div class="line">  	</div><div class="line">  	<span class="comment">//p1</span></div><div class="line">  	<span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">servaddr</span>;</span></div><div class="line">  </div><div class="line"> 	<span class="keyword">char</span> buff[MAXLINE];</div><div class="line">  	<span class="keyword">timt_t</span> ticks;</div><div class="line">  </div><div class="line">  	<span class="comment">//p2</span></div><div class="line">  	listenfd = Socket(AF_INET, SOCK_STREAM, <span class="number">0</span>);</div><div class="line">  	bzero(&amp;servaddr, <span class="keyword">sizeof</span>(servaddr));</div><div class="line">  </div><div class="line">  	<span class="comment">//p3</span></div><div class="line">  	servaddr.sin_family = AF_INET;</div><div class="line">  	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);</div><div class="line">  	servaddr.sin_port = htons(<span class="number">13</span>);</div><div class="line">  	Bind(listenfd, (SA *) &amp;servaddr, <span class="keyword">sizeof</span>(servaddr));</div><div class="line">  	</div><div class="line">  	<span class="comment">//p4</span></div><div class="line">  	Listen(listenfd, LISTENQ);</div><div class="line">  </div><div class="line">  	<span class="comment">//p5</span></div><div class="line">	<span class="keyword">for</span>(;;)&#123;</div><div class="line">    	connfd = Accept(listenfd, (SA *) <span class="literal">NULL</span>, <span class="literal">NULL</span>);</div><div class="line">      	ticks = time(<span class="literal">NULL</span>);</div><div class="line">      	<span class="built_in">snprintf</span>(buff, <span class="keyword">sizeof</span>(buff), <span class="string">"%.24s\r\n"</span>, ctime(&amp;ticks));</div><div class="line">      	write(connfd, buff, <span class="built_in">strlen</span>(buff));</div><div class="line">      </div><div class="line">      	close(connfd);</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>​    sockaddr_in: Ipv4 的套接字结构体</p>
+<p>​    Socket: 包装函数，创建套接字并返回一个套接字描述符</p>
+<p>​    Bind:包装函数，填写网际套接字地址结构后，使用Bind函数，绑定套接字结构体到套接字描述符上</p>
+<p>​    Listen:包装函数，把某套接字转换成一个监听套接字。</p>
+<p>​    Accept:包装函数，服务器进程在accpet调用中被投入睡眠，等待某个客户连接的到达并被内核接受。TCP连接使用所谓的三路握手来建立连接。握手完成时accept返回，其返回值是一个被称为<strong>已连接描述</strong>符的新描述符。</p>
+<p>​    </p>
+<p>​    <u><strong>该服务器为迭代服务器，对于每个用户它都迭代执行一次。相对能够同时处理多个客户的为并发服务器。</strong></u></p>
+<h1 id="socker-client"><a href="#socker-client" class="headerlink" title="socker - client"></a>socker - client</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"unp.h"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> **argv)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  	<span class="keyword">int</span> sockfd,n;</div><div class="line">  	<span class="keyword">char</span> recvline[MAXLINE + <span class="number">1</span>];</div><div class="line">  	<span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">servaddr</span>;</span></div><div class="line">  	</div><div class="line">  	<span class="keyword">if</span> ( argc != <span class="number">2</span>)</div><div class="line">  		err_quit(<span class="string">"usage: a.out &lt;Ipaddress&gt;"</span>);</div><div class="line">  	</div><div class="line">  	<span class="keyword">if</span> ( (sockfd = socket(AF_INET, SOCK_STREAM, <span class="number">0</span>)) &lt; <span class="number">0</span>)</div><div class="line">  		err_sys(<span class="string">"socket error"</span>);</div><div class="line">  	</div><div class="line">  	bzero(&amp;servaddr, <span class="keyword">sizeof</span>(servaddr));</div><div class="line">	servaddr.sin_family = AF_INET;</div><div class="line">	servaddr.sin_port = htons(<span class="number">13</span>);</div><div class="line">	<span class="keyword">if</span> (inet_pton(AF_INET, argv[<span class="number">1</span>], &amp;servaddr.sin_addr) &lt;= <span class="number">0</span>)</div><div class="line">		err_quit(<span class="string">"inet_pton error for %s"</span>, argv[<span class="number">1</span>]);</div><div class="line">	</div><div class="line">	<span class="keyword">if</span> (connect(sockfd, (SA*) &amp;servaddr, <span class="keyword">sizeof</span>(servaddr)) &lt; <span class="number">0</span>)</div><div class="line">		err_sys(<span class="string">"connect error"</span>);</div><div class="line">	</div><div class="line">	<span class="keyword">while</span>( (n = read(sockfd, recvline, MAXLINE)) &gt; <span class="number">0</span>) &#123;</div><div class="line">      recvline[n] = <span class="number">0</span>;</div><div class="line">      <span class="keyword">if</span> (<span class="built_in">fputs</span>(recvline, <span class="built_in">stdout</span>) == EOF)</div><div class="line">      	err_sys(<span class="string">"fputs error"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (n &lt; <span class="number">0</span>)</div><div class="line">		err_sys(<span class="string">"read error"</span>);</div><div class="line">	</div><div class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2017/11/14/wiki-中文化计划/" title= wiki 中文化计划 >
+                    <span>Next Post</span>
+                    <span>wiki 中文化计划</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2017/11/09/APUE-socket-key-words/" title= APUE-socket key words >
+                    <span>Previous Post</span>
+                    <span>APUE-socket key words</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 来必力City版安装代码 -->
+
     
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/01/thread-pool-源代码学习/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>thread pool 源代码学习</span>
-                    </h2>
-                <div class="abstract-content">
-                    未知知识点​    future[o]
-​    lock_gurad[o]
-​    unique_lock[o]
-​    size_t [o]
-​    exception[o]
-​    atmoic[n]
-​    condition_variable[o]
-​    可变参数模版[o]
-​    type_info
-​    typeid
-​    std::move[o]
-​    RAII[o]
-​    forward[n]
-​    result_of[o]
-size_t​    int小于等于数据线宽度，size_t大于等于地址线宽度
-​    存在意义：地址线宽度...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = c++>c++</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = thread pool>thread pool</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/01</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
+
+<!-- City版安装代码已完成 -->
 </main>
             <!-- profile -->
             
