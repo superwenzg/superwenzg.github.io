@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        unp-1 简介 · DiuR21Laonnu&#39;s sites
+        套接字基本概念 · DiuR21Laonnu&#39;s sites
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -81,7 +81,7 @@
                 <a href="/" >DiuR21Laonnu</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">unp-1 简介</a>
+                <a href="#" class="post-name">套接字基本概念</a>
             </div>
     </div>
     
@@ -102,7 +102,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            unp-1 简介
+            套接字基本概念
             <!-- 404 -->
             
         </h1>
@@ -122,11 +122,13 @@
     
         <a class="post-tag" href="javascript:void(0);" data-href = unp>unp</a>
     
+        <a class="post-tag" href="javascript:void(0);" data-href = 套接字>套接字</a>
+    
 </div>
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2017/11/14</span>
+                <span class="post-intro-time">2017/11/21</span>
             </div>
         
     </div>
@@ -134,32 +136,26 @@
         <div class="container">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="socket-server"><a href="#socket-server" class="headerlink" title="socket - server"></a>socket - server</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"unp.h"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> **argv)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  	<span class="keyword">int</span> listenfd, connfd;</div><div class="line">  	</div><div class="line">  	<span class="comment">//p1</span></div><div class="line">  	<span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">servaddr</span>;</span></div><div class="line">  </div><div class="line"> 	<span class="keyword">char</span> buff[MAXLINE];</div><div class="line">  	<span class="keyword">timt_t</span> ticks;</div><div class="line">  </div><div class="line">  	<span class="comment">//p2</span></div><div class="line">  	listenfd = Socket(AF_INET, SOCK_STREAM, <span class="number">0</span>);</div><div class="line">  	bzero(&amp;servaddr, <span class="keyword">sizeof</span>(servaddr));</div><div class="line">  </div><div class="line">  	<span class="comment">//p3</span></div><div class="line">  	servaddr.sin_family = AF_INET;</div><div class="line">  	servaddr.sin_addr.s_addr = htonl(INADDR_ANY);</div><div class="line">  	servaddr.sin_port = htons(<span class="number">13</span>);</div><div class="line">  	Bind(listenfd, (SA *) &amp;servaddr, <span class="keyword">sizeof</span>(servaddr));</div><div class="line">  	</div><div class="line">  	<span class="comment">//p4</span></div><div class="line">  	Listen(listenfd, LISTENQ);</div><div class="line">  </div><div class="line">  	<span class="comment">//p5</span></div><div class="line">	<span class="keyword">for</span>(;;)&#123;</div><div class="line">    	connfd = Accept(listenfd, (SA *) <span class="literal">NULL</span>, <span class="literal">NULL</span>);</div><div class="line">      	ticks = time(<span class="literal">NULL</span>);</div><div class="line">      	<span class="built_in">snprintf</span>(buff, <span class="keyword">sizeof</span>(buff), <span class="string">"%.24s\r\n"</span>, ctime(&amp;ticks));</div><div class="line">      	write(connfd, buff, <span class="built_in">strlen</span>(buff));</div><div class="line">      </div><div class="line">      	close(connfd);</div><div class="line">  	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>​    sockaddr_in: Ipv4 的套接字结构体</p>
-<p>​    Socket: 包装函数，创建套接字并返回一个套接字描述符</p>
-<p>​    Bind:包装函数，填写网际套接字地址结构后，使用Bind函数，绑定套接字结构体到套接字描述符上</p>
-<p>​    Listen:包装函数，把某套接字转换成一个监听套接字。</p>
-<p>​    Accept:包装函数，服务器进程在accpet调用中被投入睡眠，等待某个客户连接的到达并被内核接受。TCP连接使用所谓的三路握手来建立连接。握手完成时accept返回，其返回值是一个被称为<strong>已连接描述</strong>符的新描述符。</p>
-<p>​    </p>
-<p>​    <u><strong>该服务器为迭代服务器，对于每个用户它都迭代执行一次。相对能够同时处理多个客户的为并发服务器。</strong></u></p>
-<h1 id="socker-client"><a href="#socker-client" class="headerlink" title="socker - client"></a>socker - client</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"unp.h"</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc,<span class="keyword">char</span> **argv)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">  	<span class="keyword">int</span> sockfd,n;</div><div class="line">  	<span class="keyword">char</span> recvline[MAXLINE + <span class="number">1</span>];</div><div class="line">  	<span class="class"><span class="keyword">struct</span> <span class="title">sockaddr_in</span> <span class="title">servaddr</span>;</span></div><div class="line">  	</div><div class="line">  	<span class="keyword">if</span> ( argc != <span class="number">2</span>)</div><div class="line">  		err_quit(<span class="string">"usage: a.out &lt;Ipaddress&gt;"</span>);</div><div class="line">  	</div><div class="line">  	<span class="keyword">if</span> ( (sockfd = socket(AF_INET, SOCK_STREAM, <span class="number">0</span>)) &lt; <span class="number">0</span>)</div><div class="line">  		err_sys(<span class="string">"socket error"</span>);</div><div class="line">  	</div><div class="line">  	bzero(&amp;servaddr, <span class="keyword">sizeof</span>(servaddr));</div><div class="line">	servaddr.sin_family = AF_INET;</div><div class="line">	servaddr.sin_port = htons(<span class="number">13</span>);</div><div class="line">	<span class="keyword">if</span> (inet_pton(AF_INET, argv[<span class="number">1</span>], &amp;servaddr.sin_addr) &lt;= <span class="number">0</span>)</div><div class="line">		err_quit(<span class="string">"inet_pton error for %s"</span>, argv[<span class="number">1</span>]);</div><div class="line">	</div><div class="line">	<span class="keyword">if</span> (connect(sockfd, (SA*) &amp;servaddr, <span class="keyword">sizeof</span>(servaddr)) &lt; <span class="number">0</span>)</div><div class="line">		err_sys(<span class="string">"connect error"</span>);</div><div class="line">	</div><div class="line">	<span class="keyword">while</span>( (n = read(sockfd, recvline, MAXLINE)) &gt; <span class="number">0</span>) &#123;</div><div class="line">      recvline[n] = <span class="number">0</span>;</div><div class="line">      <span class="keyword">if</span> (<span class="built_in">fputs</span>(recvline, <span class="built_in">stdout</span>) == EOF)</div><div class="line">      	err_sys(<span class="string">"fputs error"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">if</span> (n &lt; <span class="number">0</span>)</div><div class="line">		err_sys(<span class="string">"read error"</span>);</div><div class="line">	</div><div class="line">	<span class="built_in">exit</span>(<span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h1 id="IPv4套接字地址结果"><a href="#IPv4套接字地址结果" class="headerlink" title="IPv4套接字地址结果"></a>IPv4套接字地址结果</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">struct in_addr&#123;</div><div class="line">  in_addr_t s_addr;</div><div class="line">&#125;</div><div class="line"></div><div class="line">struct sockadd_in&#123;</div><div class="line">  unit8_t sin_len;</div><div class="line">  sa_family_t sin_family;</div><div class="line">  in_port_t sin_port;</div><div class="line">  </div><div class="line">  struct in_addr sin_addr;</div><div class="line">  </div><div class="line">  char	sin_zero[8];</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>s_addr:    POSIX规范不要求存在的成员，可以简化长度可变套接字地址结构的处理，无法设置和检查。</p>
+<p>sin_family:    POSIX规范要求m</p>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
             <li class="next">
-                <a href= "/2017/11/14/wiki-中文化计划/" title= wiki 中文化计划 >
+                <a href= "/2017/11/25/实现可靠传输协议-准备工作/" title= 实现可靠传输协议 - 准备工作 >
                     <span>Next Post</span>
-                    <span>wiki 中文化计划</span>
+                    <span>实现可靠传输协议 - 准备工作</span>
                 </a>
             </li>
         
         
             <li class="previous">
-                <a href= "/2017/11/09/APUE-socket-key-words/" title= APUE-socket key words >
+                <a href= "/2017/11/15/unp-2-传输层-TCP、UDP和SCTP/" title= unp-2 传输层:TCP、UDP和SCTP >
                     <span>Previous Post</span>
-                    <span>APUE-socket key words</span>
+                    <span>unp-2 传输层:TCP、UDP和SCTP</span>
                 </a>
             </li>
         
