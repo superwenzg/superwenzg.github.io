@@ -134,29 +134,132 @@
         <div class="container">
             <main class="main post-page">
     <article class="article-entry">
-        <p>​    1.计算机操作系统</p>
-<p>​    学习情况：仅在理论层面完成了学习，感觉无法下地。</p>
-<p>​    相关项目：无</p>
-<p>​    目标：粗略的了解linux内核的实现问题。选择linux，因为资料齐全，多。</p>
-<p>​    2.计算机网络</p>
-<p>​    学习情况：理论学习中，未完成。</p>
-<p>​    相关项目：简单的socket编程。</p>
-<p>​    目标：web服务器，ftp下的文件传输。</p>
-<p>​    3.算法&amp;数据结构</p>
-<p>​    学习情况：</p>
-<p>​        必须掌握的算法：</p>
-<p>​            bfs、dfs、排序算法、图算法、树算法、链表</p>
-<p>​    4.数据库</p>
-<p>​    学习情况：良好</p>
-<p>​    5.计算机组成原理</p>
-<p>​    学习情况：未开始</p>
-<p>​    6.Verilog</p>
-<p>​    学习情况：良好</p>
-<p>​    目标：开发4-8bitcpu</p>
-<p>​    7.编译原理</p>
-<p>​    学习情况：未开始</p>
-<p>​    目标：开发编译器</p>
-<p>归纳：编译器，基本内核理解，服务器开发 —》 分布式kv数据库</p>
+        <h1 id="现已掌握或了解的Knowledge"><a href="#现已掌握或了解的Knowledge" class="headerlink" title="现已掌握或了解的Knowledge"></a>现已掌握或了解的Knowledge</h1><ul>
+<li>C/C++</li>
+<li>Python</li>
+<li>HTML/CSS/JS</li>
+<li>MySQL</li>
+<li>Verilog</li>
+<li>X86ASM</li>
+<li>MATLAB</li>
+<li><p>计算机网络</p>
+<ul>
+<li>应用层<ul>
+<li>HTTP</li>
+<li>DNS</li>
+<li>SMTP</li>
+<li>P2P File Distribution</li>
+</ul>
+</li>
+<li><p>运输层</p>
+<ul>
+<li>TCP<ul>
+<li>流量控制<ul>
+<li>滑动窗口<ul>
+<li>接收方告知发送方RWND, 发送方根据RWND发送报文不可超过RWND</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>拥塞控制<ul>
+<li>慢启动<ul>
+<li>指数增长后，若发生丢包 or 超时进入拥塞避免</li>
+</ul>
+</li>
+<li>拥塞避免<ul>
+<li>线性增乘性减</li>
+</ul>
+</li>
+<li>快速恢复<ul>
+<li>利用冗余ACK的办法，确认收方或发生了报文失序问题，快速恢复。</li>
+</ul>
+</li>
+<li>可靠传输<ul>
+<li>回退N步（GBN）</li>
+<li>选择重传（SR）<ul>
+<li>收方维护接收窗口（区别于GBN）</li>
+</ul>
+</li>
+<li>Under TCP<ul>
+<li>TCP在算法逻辑上，表现得与GBN类似，收方不维护接收窗口。但对于乱序到达的报文，TCP并不抛弃，而是选择缓存下来。当发方，收到连续3个或以上相同的ACK 序列号，则可定位丢失报文段。因而也有SR的特征。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>UDP<ul>
+<li>不可靠运输，基本可以理解为发送报文 + ip数据包</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>网络层 — 未完成</li>
+<li>链路层 — 未完成</li>
+<li>物理层 — 未完成</li>
+</ul>
+</li>
+<li><p>Machine Learning</p>
+<ul>
+<li>机器学习<ul>
+<li>梯度下降</li>
+<li>支持向量机</li>
+<li>K-means 算法</li>
+</ul>
+</li>
+<li>深度学习<ul>
+<li>神经网络</li>
+<li>前向传播</li>
+<li>反向传播算法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Proj-deved-and-Wanted"><a href="#Proj-deved-and-Wanted" class="headerlink" title="Proj deved and Wanted"></a>Proj deved and Wanted</h1><ul>
+<li>DEVED<ul>
+<li>X86ASM<ul>
+<li>Traffic Sim</li>
+</ul>
+</li>
+<li>C/C++<ul>
+<li>Basis Socket Program</li>
+<li>Library Management</li>
+<li>File Hash Code/Decode</li>
+</ul>
+</li>
+<li>HTML/CSS/JS<ul>
+<li>Basis “About” Page</li>
+</ul>
+</li>
+<li>MATLAB<ul>
+<li>Basis Assignment<ul>
+<li>About Ander Ng</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Wanted<ul>
+<li>Verilog<ul>
+<li>4/8 Bit CPU</li>
+</ul>
+</li>
+<li>C/C++<ul>
+<li>Web Server With Hybird Thread</li>
+</ul>
+</li>
+<li>HTML/CSS/JS<ul>
+<li>Blog</li>
+</ul>
+</li>
+<li>Complier</li>
+</ul>
+</li>
+</ul>
 
     </article>
     <!-- 前后页  -->
@@ -466,7 +569,78 @@
     
     
     
-    <div class="total-archive"> Total : 18 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 23 </div>
     
     <div class="post-archive">
     
@@ -475,6 +649,31 @@
     
     <div class="archive-year"> 2017 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/11</span><a class="archive-post-title" href= "/2017/12/11/X86ASM-Traffic-Sim-01-Intro/" >X86ASM Traffic Sim - 01 Intro</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/11</span><a class="archive-post-title" href= "/2017/12/11/Verilog-Pipeline/" >Verilog Pipeline</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/09</span><a class="archive-post-title" href= "/2017/12/09/经典最短路算法/" >经典最短路算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/09</span><a class="archive-post-title" href= "/2017/12/09/链路状态路由选择算法-与-距离向量路由选择算法/" >链路状态路由选择算法 与 距离向量路由选择算法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">11/29</span><a class="archive-post-title" href= "/2017/11/29/Engema/" >Engema</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -579,13 +778,21 @@
     
         <span class="sidebar-tag-name"><a href= "#">继承</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">RAII</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">F1</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">news</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">翻译系列</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">X86ASM</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Manual</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Engema</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">interesting</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">RAII</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">c++</a></span>
     
@@ -593,33 +800,45 @@
     
         <span class="sidebar-tag-name"><a href= "#">smart pointer</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">thread pool</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">lambda</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">c++11</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">wiki</a></span>
+        <span class="sidebar-tag-name"><a href= "#">thread pool</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">unp</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">指针</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">可变参数模版</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">泛化</a></span>
+        <span class="sidebar-tag-name"><a href= "#">wiki</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">底层</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">套接字</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">总结</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">指针</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">心声</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">CyberPunk</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Floyd</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Dijkstra</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Bellman-Ford</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">SPFA</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">可变参数模版</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">泛化</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">计算机网络</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">路由选择算法</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">套接字</a></span>
     
     </div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
