@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        DiuR21Laonnu&#39;s sites
+        学习计划总结 · DiuR21Laonnu&#39;s sites
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -68,11 +68,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >DiuR21Laonnu</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">学习计划总结</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>DiuR21Laonnu</a>
 </header>
@@ -80,66 +91,194 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://ok8er9pip.bkt.clouddn.com/postbanner.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            学习计划总结
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+        </p>
+        <!-- 404 -->
+        
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = 总结>总结</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/12/11</span>
+            </div>
         
     </div>
 </div>
         <div class="container">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="现已掌握或了解的Knowledge"><a href="#现已掌握或了解的Knowledge" class="headerlink" title="现已掌握或了解的Knowledge"></a>现已掌握或了解的Knowledge</h1><ul>
+<li>C/C++</li>
+<li>Python</li>
+<li>HTML/CSS/JS</li>
+<li>MySQL</li>
+<li>Verilog</li>
+<li>X86ASM</li>
+<li>MATLAB</li>
+<li><p>计算机网络</p>
+<ul>
+<li>应用层<ul>
+<li>HTTP</li>
+<li>DNS</li>
+<li>SMTP</li>
+<li>P2P File Distribution</li>
+</ul>
+</li>
+<li><p>运输层</p>
+<ul>
+<li>TCP<ul>
+<li>流量控制<ul>
+<li>滑动窗口<ul>
+<li>接收方告知发送方RWND, 发送方根据RWND发送报文不可超过RWND</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>拥塞控制<ul>
+<li>慢启动<ul>
+<li>指数增长后，若发生丢包 or 超时进入拥塞避免</li>
+</ul>
+</li>
+<li>拥塞避免<ul>
+<li>线性增乘性减</li>
+</ul>
+</li>
+<li>快速恢复<ul>
+<li>利用冗余ACK的办法，确认收方或发生了报文失序问题，快速恢复。</li>
+</ul>
+</li>
+<li>可靠传输<ul>
+<li>回退N步（GBN）</li>
+<li>选择重传（SR）<ul>
+<li>收方维护接收窗口（区别于GBN）</li>
+</ul>
+</li>
+<li>Under TCP<ul>
+<li>TCP在算法逻辑上，表现得与GBN类似，收方不维护接收窗口。但对于乱序到达的报文，TCP并不抛弃，而是选择缓存下来。当发方，收到连续3个或以上相同的ACK 序列号，则可定位丢失报文段。因而也有SR的特征。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>UDP<ul>
+<li>不可靠运输，基本可以理解为发送报文 + ip数据包</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>网络层 — 未完成</li>
+<li>链路层 — 未完成</li>
+<li>物理层 — 未完成</li>
+</ul>
+</li>
+<li><p>Machine Learning</p>
+<ul>
+<li>机器学习<ul>
+<li>梯度下降</li>
+<li>支持向量机</li>
+<li>K-means 算法</li>
+</ul>
+</li>
+<li>深度学习<ul>
+<li>神经网络</li>
+<li>前向传播</li>
+<li>反向传播算法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Proj-deved-and-Wanted"><a href="#Proj-deved-and-Wanted" class="headerlink" title="Proj deved and Wanted"></a>Proj deved and Wanted</h1><ul>
+<li>DEVED<ul>
+<li>X86ASM<ul>
+<li>Traffic Sim</li>
+</ul>
+</li>
+<li>C/C++<ul>
+<li>Basis Socket Program</li>
+<li>Library Management</li>
+<li>File Hash Code/Decode</li>
+</ul>
+</li>
+<li>HTML/CSS/JS<ul>
+<li>Basis “About” Page</li>
+</ul>
+</li>
+<li>MATLAB<ul>
+<li>Basis Assignment<ul>
+<li>About Ander Ng</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Wanted<ul>
+<li>Verilog<ul>
+<li>4/8 Bit CPU</li>
+</ul>
+</li>
+<li>C/C++<ul>
+<li>Web Server With Hybird Thread</li>
+</ul>
+</li>
+<li>HTML/CSS/JS<ul>
+<li>Blog</li>
+</ul>
+</li>
+<li>Complier</li>
+</ul>
+</li>
+</ul>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2017/12/11/Verilog-Pipeline/" title= Verilog Pipeline >
+                    <span>Previous Post</span>
+                    <span>Verilog Pipeline</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 来必力City版安装代码 -->
+
     
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/10/04/C++ mutex/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>C++ mutex解析</span>
-                    </h2>
-                <div class="abstract-content">
-                    什么是mutex互斥锁（Mutual exclusion，缩写Mutex）是一种用于多线程编程中，防止两条线程对同一公共资源（比如全局变量）进行读写的机制。通过将代码分割成一个一个的临界区域（critical section）达成这样的效果。
-C++ mutex在C++11中针对并发编程提供了如下的mutex（各有特性）：
-std::mutex
-std::recursive_mutex
-std::timed_mutex
-std::recursive_timed_mutex
-且还提供了如下用于辅助的模版类：
-template class lock_guard;
-template class...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = mutex>mutex</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/10/04</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
+
+<!-- City版安装代码已完成 -->
 </main>
             <!-- profile -->
             
