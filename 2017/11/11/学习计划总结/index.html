@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        C++ mutex解析 · DiuR21Laonnu&#39;s sites
+        学习计划总结 · DiuR21Laonnu&#39;s sites
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -81,7 +81,7 @@
                 <a href="/" >DiuR21Laonnu</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">C++ mutex解析</a>
+                <a href="#" class="post-name">学习计划总结</a>
             </div>
     </div>
     
@@ -102,7 +102,7 @@
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            C++ mutex解析
+            学习计划总结
             <!-- 404 -->
             
         </h1>
@@ -120,15 +120,13 @@
             
                 <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = C++>C++</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = mutex>mutex</a>
+        <a class="post-tag" href="javascript:void(0);" data-href = 总结>总结</a>
     
 </div>
             
             <div class="post-intro-meta">
                 <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                <span class="post-intro-time">2017/10/04</span>
+                <span class="post-intro-time">2017/11/11</span>
             </div>
         
     </div>
@@ -136,39 +134,149 @@
         <div class="container">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="什么是mutex"><a href="#什么是mutex" class="headerlink" title="什么是mutex"></a>什么是mutex</h1><p><strong>互斥锁</strong>（Mutual exclusion，缩写Mutex）是一种用于多线程编程中，防止两条线程对同一<strong><u>公共资源</u></strong>（比如全局变量）进行读写的机制。通过将代码分割成一个一个的临界区域（critical section）达成这样的效果。</p>
-<h1 id="C-mutex"><a href="#C-mutex" class="headerlink" title="C++ mutex"></a>C++ mutex</h1><p>在C++11中针对并发编程提供了如下的mutex（各有特性）：</p>
-<p>std::mutex</p>
-<p>std::recursive_mutex</p>
-<p>std::timed_mutex</p>
-<p>std::recursive_timed_mutex</p>
-<p>且还提供了如下用于辅助的模版类：</p>
-<p>template<class mutex=""> class lock_guard;</class></p>
-<p>template<class mutex=""> class unique_lock;</class></p>
-<h1 id="基本mutex样例"><a href="#基本mutex样例" class="headerlink" title="基本mutex样例"></a>基本mutex样例</h1><p>std::mutex</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">printer</span><span class="params">(<span class="keyword">char</span> c)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    mtx.lock();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">20</span>;i++)</div><div class="line">        <span class="built_in">cout</span>&lt;&lt; c;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    mtx.unlock();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="function">thread <span class="title">t</span><span class="params">(printer, <span class="string">'*'</span>)</span></span>;</div><div class="line">    <span class="function">thread <span class="title">t1</span><span class="params">(printer, <span class="string">'!'</span>)</span></span>;</div><div class="line">    t.join();</div><div class="line">    t1.join();</div><div class="line">&#125;</div><div class="line"><span class="comment">//result</span></div><div class="line"><span class="comment">//********************</span></div><div class="line"><span class="comment">//!!!!!!!!!!!!!!!!!!!!</span></div><div class="line"><span class="comment">//若不加锁，则输出结果紊乱。</span></div></pre></td></tr></table></figure>
-<p>std::recurisve_mutex</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">printer</span><span class="params">(<span class="keyword">char</span> c)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    rmtx.lock();</div><div class="line">    rmtx.lock();</div><div class="line">    rmtx.unlock();</div><div class="line">    rmtx.unlock();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">20</span>;i++)</div><div class="line">        <span class="built_in">cout</span>&lt;&lt; <span class="keyword">char</span>(c+<span class="number">1</span>);</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    mtx.lock();</div><div class="line">    mtx.lock();</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">20</span>;i++)</div><div class="line">        <span class="built_in">cout</span>&lt;&lt; c;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">    mtx.unlock();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="function">thread <span class="title">t</span><span class="params">(printer, <span class="string">'*'</span>)</span></span>;</div><div class="line">    t.join();</div><div class="line">&#125;</div><div class="line"><span class="comment">//result</span></div><div class="line"><span class="comment">//++++++++++++++++++++</span></div><div class="line"><span class="comment">//程序输出+后，陷入死锁。展现了不可重入锁与可重入锁的行为区别。</span></div></pre></td></tr></table></figure>
-<p>std::timed_mutex</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">printer</span><span class="params">(<span class="keyword">char</span> c)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    tmtx.try_lock_for(chrono::nanoseconds(<span class="number">1</span>));</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; <span class="number">20</span>;i++)</div><div class="line">        <span class="built_in">cout</span>&lt;&lt; c;</div><div class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="function">thread <span class="title">t</span><span class="params">(printer, <span class="string">'*'</span>)</span></span>;</div><div class="line">    <span class="function">thread <span class="title">t2</span><span class="params">(printer, <span class="string">'+'</span>)</span></span>;</div><div class="line">    t.join();</div><div class="line">    t2.join();</div><div class="line">&#125;</div><div class="line"><span class="comment">//result</span></div><div class="line"><span class="comment">//*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+*+</span></div><div class="line"><span class="comment">//</span></div><div class="line"><span class="comment">//</span></div></pre></td></tr></table></figure>
-<p>省略recursive_timed_mutex</p>
+        <h1 id="现已掌握或了解的Knowledge"><a href="#现已掌握或了解的Knowledge" class="headerlink" title="现已掌握或了解的Knowledge"></a>现已掌握或了解的Knowledge</h1><ul>
+<li>C/C++</li>
+<li>Python</li>
+<li>HTML/CSS/JS</li>
+<li>MySQL</li>
+<li>Verilog</li>
+<li>X86ASM</li>
+<li>MATLAB</li>
+<li><p>计算机网络</p>
+<ul>
+<li>应用层<ul>
+<li>HTTP</li>
+<li>DNS</li>
+<li>SMTP</li>
+<li>P2P File Distribution</li>
+</ul>
+</li>
+<li><p>运输层</p>
+<ul>
+<li>TCP<ul>
+<li>流量控制<ul>
+<li>滑动窗口<ul>
+<li>接收方告知发送方RWND, 发送方根据RWND发送报文不可超过RWND</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>拥塞控制<ul>
+<li>慢启动<ul>
+<li>指数增长后，若发生丢包 or 超时进入拥塞避免</li>
+</ul>
+</li>
+<li>拥塞避免<ul>
+<li>线性增乘性减</li>
+</ul>
+</li>
+<li>快速恢复<ul>
+<li>利用冗余ACK的办法，确认收方或发生了报文失序问题，快速恢复。</li>
+</ul>
+</li>
+<li>可靠传输<ul>
+<li>回退N步（GBN）</li>
+<li>选择重传（SR）<ul>
+<li>收方维护接收窗口（区别于GBN）</li>
+</ul>
+</li>
+<li>Under TCP<ul>
+<li>TCP在算法逻辑上，表现得与GBN类似，收方不维护接收窗口。但对于乱序到达的报文，TCP并不抛弃，而是选择缓存下来。当发方，收到连续3个或以上相同的ACK 序列号，则可定位丢失报文段。因而也有SR的特征。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>UDP<ul>
+<li>不可靠运输，基本可以理解为发送报文 + ip数据包</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>网络层 — 未完成</li>
+<li>链路层 — 未完成</li>
+<li>物理层 — 未完成</li>
+</ul>
+</li>
+<li><p>Machine Learning</p>
+<ul>
+<li>机器学习<ul>
+<li>梯度下降</li>
+<li>支持向量机</li>
+<li>K-means 算法</li>
+</ul>
+</li>
+<li>深度学习<ul>
+<li>神经网络</li>
+<li>前向传播</li>
+<li>反向传播算法</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="Proj-deved-and-Wanted"><a href="#Proj-deved-and-Wanted" class="headerlink" title="Proj deved and Wanted"></a>Proj deved and Wanted</h1><ul>
+<li>DEVED<ul>
+<li>X86ASM<ul>
+<li>Traffic Sim</li>
+</ul>
+</li>
+<li>C/C++<ul>
+<li>Basis Socket Program</li>
+<li>Library Management</li>
+<li>File Hash Code/Decode</li>
+</ul>
+</li>
+<li>HTML/CSS/JS<ul>
+<li>Basis “About” Page</li>
+</ul>
+</li>
+<li>MATLAB<ul>
+<li>Basis Assignment<ul>
+<li>About Ander Ng</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Wanted<ul>
+<li>Verilog<ul>
+<li>4/8 Bit CPU</li>
+</ul>
+</li>
+<li>C/C++<ul>
+<li>Web Server With Hybird Thread</li>
+</ul>
+</li>
+<li>HTML/CSS/JS<ul>
+<li>Blog</li>
+</ul>
+</li>
+<li>Complier</li>
+</ul>
+</li>
+</ul>
 
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
         
             <li class="next">
-                <a href= "/2017/10/07/make-shared-vs-shared 对比/" title= make_shared vs shared_ptr 对比 >
+                <a href= "/2017/11/14/unp-1-简介/" title= unp-1 简介 >
                     <span>Next Post</span>
-                    <span>make_shared vs shared_ptr 对比</span>
+                    <span>unp-1 简介</span>
                 </a>
             </li>
         
         
             <li class="previous">
-                <a href= "/2017/10/03/c-good-articles/" title= c++ good articles >
+                <a href= "/2017/10/30/孤独到了极点？CyberPunk/" title= 孤独到了极点？CyberPunk >
                     <span>Previous Post</span>
-                    <span>c++ good articles</span>
+                    <span>孤独到了极点？CyberPunk</span>
                 </a>
             </li>
         
