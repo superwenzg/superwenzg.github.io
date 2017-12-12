@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        DiuR21Laonnu&#39;s sites
+        Learning Key Word · DiuR21Laonnu&#39;s sites
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -68,11 +68,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >DiuR21Laonnu</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Learning Key Word</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>DiuR21Laonnu</a>
 </header>
@@ -80,182 +91,192 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://ok8er9pip.bkt.clouddn.com/postbanner.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            Learning Key Word
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+        </p>
+        <!-- 404 -->
+        
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Keyword>Keyword</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/12/12</span>
+            </div>
         
     </div>
 </div>
         <div class="container">
-            <main class="main index-page">
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/11/29/Engema/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>Engema</span>
-                    </h2>
-                <div class="abstract-content">
-                    ​    早期：密文的前六位，为重复字母（用于设定新密钥）【以每日密钥为基础】
-​    通过截获德军的通信报文，而后对重复字母进行分析。得到转子在”初始位置”和”转动三次”后所对应的密码表。
-​    通过比对密码表，得到
+            <main class="main post-page">
+    <article class="article-entry">
+        <h2 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h2><ul>
+<li>顺序表优化<ul>
+<li>若对表项的排列顺序无要求，在删除或者插入时，存在优化可能。</li>
+</ul>
+</li>
+<li>顺序表优缺点<ul>
+<li>优：<ul>
+<li>无需为了表达节点间的逻辑关系而增加额外的存储空间，存储利用效率高。</li>
+<li>可以方便地随机存取表中任一结点，存取速度快。</li>
+</ul>
+</li>
+<li>缺：<ul>
+<li>当插入或者删除，若需要保持相对次序不变，平均需要移动一般元素，运行效率很低。</li>
+<li>顺序表要求占用连续的空间。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="链表-—-克服顺序表缺点"><a href="#链表-—-克服顺序表缺点" class="headerlink" title="链表 — 克服顺序表缺点"></a>链表 — 克服顺序表缺点</h2><ul>
+<li>单链表特点<ul>
+<li>长度可以方便地进行扩充</li>
+</ul>
+</li>
+<li>单链表的建立<ul>
+<li>前插法<ul>
+<li>插入数据总是在表的前端进行</li>
+</ul>
+</li>
+<li>后插法[ 维护last 指针 ]<ul>
+<li>插入数据总是在表的后端进行</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>单循环链表<ul>
+<li>链表的表尾结点的link域中不是NULL，而是存放了一个指向链表开始结点的指针。</li>
+<li>对于单循环链表，维护表尾结点比维护表头结点性价比更高。<ul>
+<li>考虑现今在表头插入数据a</li>
+<li>如果维护表头指针，则需要遍历到表尾已更新表尾的link域，而维护表尾指针则不需要。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>​双向链表<ul>
+<li>特点<ul>
+<li>每个结点有两个链指针，一个指向结点的直接前驱，一个指向结点的直接后续。不论是向前驱搜索还是向后继方向搜索，时间开销都只有O(1)。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>静态链表<ul>
+<li>使用数组构建，为每一个元素附加一个链接就指针。它允许我们不改变各元素的物理位置。</li>
+<li>既可以利用数组下标访问带来的访问速度的提升，也可以避免顺序表插入删除数据时较低的性能表现</li>
+</ul>
+</li>
+</ul>
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><ul>
+<li>栈<ul>
+<li>定义<ul>
+<li>只允许在表的末端进行插入和删除的线性表。</li>
+<li>允许插入的一端为 <strong><u>栈顶</u></strong> 不允许的一端 为 <strong><u>栈底</u></strong>   <strong><u>后进先出 ( LIFO )</u></strong></li>
+</ul>
+</li>
+<li>分类<ul>
+<li>顺序栈</li>
+<li>链式栈</li>
+</ul>
+</li>
+<li>应用<ul>
+<li>括号匹配 — 括号匹配本身便是后进先出 [ok]</li>
+<li>表达式计算 [not ok]<ul>
+<li>中缀表达式 [ 2s ]</li>
+<li>后缀表达式 [ 1s ]</li>
+<li><strong><u>利用栈将中缀表示转换为后缀表示</u></strong></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="栈与递归"><a href="#栈与递归" class="headerlink" title="栈与递归"></a>栈与递归</h2><ul>
+<li>定义<ul>
+<li>若一个对象部分地包含它自己，或用它自己给自己定义，则称这个对象是递归的。</li>
+<li>若一个过程直接地或间接地调用自己，则称这个过程是递归的过程。</li>
+</ul>
+</li>
+<li>例子<ul>
+<li>阶乘函数、幂函数、斐波那契数列</li>
+</ul>
+</li>
+<li>1.定义是递归的<ul>
+<li>认识<ul>
+<li>对于一个较为复杂的问题，如果<strong><u>能够分解成几个相对简单的且解法相同或类似的子问题时，只要解决了这些子问题</u></strong>，那么原问题就迎刃而解了。【<strong><u>分治法</u></strong>】</li>
+<li>对分解后的<strong><u>子问题可以直接解决</u></strong>时，就停止分解，退出递归。【<strong><u>递归结束条件</u></strong>】</li>
+<li>递归定义的函数，可以用递归调用的方式来求解。<strong><u>递归调用的过程直接反映了函数定义本身的意义(结构)</u></strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>2.数据结构是递归的<ul>
+<li>数据结构本身就是递归的，例如链表、树。</li>
+<li><strong><u>链表结点LinkNode</u></strong> 由 <strong><u>数据域data</u></strong>和 <strong><u>指针域link</u></strong> 组成。而指针link则由LinkNode定义</li>
+<li>对于递归形式的数据结构，使用递归的方法来编写算法特别方便。[idontthinkso]</li>
+</ul>
+</li>
+<li>3.问题的解法是递归的<ul>
+<li>经典例子：汉诺塔</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">long</span> <span class="title">Factorial</span><span class="params">(<span class="keyword">long</span> n)</span></span>&#123;</div><div class="line">  <span class="keyword">if</span>( n == <span class="number">0</span> ) <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">  <span class="keyword">else</span> <span class="keyword">return</span> n * Factorial(n<span class="number">-1</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><ul>
+<li>Assert机制</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span>&lt; <span class="class"><span class="keyword">class</span> <span class="title">T</span> &gt;</span></div><div class="line"><span class="class"><span class="title">SeqStack</span>&lt;T&gt;:</span>:SeqStack(<span class="keyword">int</span> sz):top(<span class="number">-1</span>), maxSize(sz)&#123;</div><div class="line">	elements = <span class="keyword">new</span> T[maxSize];</div><div class="line">	assert(elements != <span class="literal">NULL</span>); <span class="comment">//断言较if判断句更为整洁，可读性更高。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = Engema>Engema</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = interesting>interesting</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/11/29</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/11/21/套接字基本概念/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>套接字基本概念</span>
-                    </h2>
-                <div class="abstract-content">
-                    IPv4套接字地址结果12345678910111213struct in_addr&#123;  in_addr_t s_addr;&#125;struct sockadd_in&#123;  unit8_t sin_len;  sa_family_t sin_family;  in_port_t sin_port;    struct in_addr sin_addr;    char	sin_zero[8];&#125;;
-s_addr:    POSIX规范不要求存在的成员，可以简化长度可变套接字地址结构的处理，无法设置和检查。
-sin_family:    POSIX规范要求m
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+            <li class="next">
+                <a href= "/2017/12/12/栈-表达式计算/" title= 栈 - 表达式计算 >
+                    <span>Next Post</span>
+                    <span>栈 - 表达式计算</span>
+                </a>
+            </li>
+        
+        
+            <li class="previous">
+                <a href= "/2017/12/12/考研计划/" title= 考研计划 >
+                    <span>Previous Post</span>
+                    <span>考研计划</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 来必力City版安装代码 -->
 
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-href = unp>unp</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 套接字>套接字</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/11/21</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/11/15/unp-2-传输层-TCP、UDP和SCTP/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>unp-2 传输层:TCP、UDP和SCTP</span>
-                    </h2>
-                <div class="abstract-content">
-                    前言​    传输层
-TCP相关UDP相关SCTP相关
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = unp>unp</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/11/15</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/11/14/wiki-中文化计划/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>wiki 中文化计划</span>
-                    </h2>
-                <div class="abstract-content">
-                    初衷​    阅读与贡献，一举两得，愉悦。
-个人进行中列表Mercedes Amg F1 W08 EQ Power
-个人完成列表Ferrai SF70H
-协同进行中列表协同完成列表
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = wiki>wiki</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/11/14</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/11/14/unp-1-简介/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>unp-1 简介</span>
-                    </h2>
-                <div class="abstract-content">
-                    socket - server123456789101112131415161718192021222324252627282930313233343536#include "unp.h"#include &lt;time.h&gt;int main(int argc,char **argv)&#123;  	int listenfd, connfd;  	  	//p1  	struct sockaddr_in servaddr;   	char buff[MAXLINE];  	timt_t ticks;    	//p2  	listenfd = Socket(AF_INET, S...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = unp>unp</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/11/14</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
+
+<!-- City版安装代码已完成 -->
 </main>
             <!-- profile -->
             
