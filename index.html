@@ -114,6 +114,42 @@
     
     
         <article class="index-post">
+            <a class="content-show-full" href = "/2017/12/14/key-word-collection/" >
+                    <h2 class="abstract-title">
+                        
+                        <span>key word collection</span>
+                    </h2>
+                <div class="abstract-content">
+                    2017.12.14collection
+遗传算法
+用于解决工程设计中的参数优化问题。Rechenberg 和 Schwefel建议，像自然界变异那样对参数随机变化。
+
+
+UNIX 起源于 BELL实验室
+​
+
+
+                </div>
+            </a>
+            <div class="abstract-post-meta">
+                <!-- tags  -->
+                
+                <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = collection>collection</a>
+    
+</div>
+                
+                <!-- date  -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/14</span>
+                </div>
+            </div>
+        </article>
+    
+    
+    
+        <article class="index-post">
             <a class="content-show-full" href = "/2017/12/13/微分和导数的区别/" >
                     <h2 class="abstract-title">
                         
@@ -165,7 +201,31 @@
                         <span>Learning Key Word -2</span>
                     </h2>
                 <div class="abstract-content">
-                    
+                    数据结构队列
+定义：只允许在表的一端插入，在另一端删除。
+允许插入的一端叫做队尾(rear), 允许删除的一端叫做队头(front)
+与栈对比，队列为FIFO。栈为LIFO
+
+
+队列的存储方式
+基于数组
+可能会假溢出。因为维护的front指针与rear不得不不断的后移。从而使得数组空间前部可能会遭到极大的浪费。
+
+
+
+
+循环队列 — 应对假溢出
+front = (front + 1) % maxSize;
+rear = (rear + 1) % maxSize;
+
+
+链式队列 — 基于单链表
+无惧溢出
+
+
+
+队列应用： 打印二项展开式 (a + b)^i 的系数 — 打印杨辉三角
+杨辉三...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -466,11 +526,8 @@ TCP
 背景
 已完成
 基本背景绘图
-
-
-未完成
-背景不闪烁
-一次写入VGA内存，而非像素上的重绘...
+背景不闪烁 — 2017.12.14
+对小车进行重绘，而不是...
                 </div>
             </a>
             <div class="abstract-post-meta">
@@ -520,39 +577,6 @@ TCP
                 <!-- date  -->
                 <div class="abstract-date">
                     <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/11/29</span>
-                </div>
-            </div>
-        </article>
-    
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/11/21/套接字基本概念/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>套接字基本概念</span>
-                    </h2>
-                <div class="abstract-content">
-                    IPv4套接字地址结果12345678910111213struct in_addr&#123;  in_addr_t s_addr;&#125;struct sockadd_in&#123;  unit8_t sin_len;  sa_family_t sin_family;  in_port_t sin_port;    struct in_addr sin_addr;    char	sin_zero[8];&#125;;
-s_addr:    POSIX规范不要求存在的成员，可以简化长度可变套接字地址结构的处理，无法设置和检查。
-sin_family:    POSIX规范要求m
-
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = unp>unp</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 套接字>套接字</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/11/21</span>
                 </div>
             </div>
         </article>
@@ -983,7 +1007,58 @@ sin_family:    POSIX规范要求m
     
     
     
-    <div class="total-archive"> Total : 26 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 27 </div>
     
     <div class="post-archive">
     
@@ -992,6 +1067,11 @@ sin_family:    POSIX规范要求m
     
     <div class="archive-year"> 2017 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/key-word-collection/" >key word collection</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -1079,21 +1159,6 @@ sin_family:    POSIX规范要求m
         </li>
     
     
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/c-good-articles/" >c++ good articles</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/01</span><a class="archive-post-title" href= "/2017/10/01/thread-pool-源代码学习/" >thread pool 源代码学习</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2017/09/26/lambda-匿名函数/" >lambda - 匿名函数</a>
-        </li>
-    
-    
     
     
     
@@ -1118,6 +1183,21 @@ sin_family:    POSIX规范要求m
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/c-good-articles/" >c++ good articles</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/01</span><a class="archive-post-title" href= "/2017/10/01/thread-pool-源代码学习/" >thread pool 源代码学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2017/09/26/lambda-匿名函数/" >lambda - 匿名函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2017/09/26/可变参数模版/" >可变参数模版</a>
         </li>
     
@@ -1133,12 +1213,12 @@ sin_family:    POSIX规范要求m
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/函数调用的实质/" >函数调用的实质-结合栈帧探讨（Stack Frame）</a>
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/嵌入式处理器/" >嵌入式处理器</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/嵌入式处理器/" >嵌入式处理器</a>
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/函数调用的实质/" >函数调用的实质-结合栈帧探讨（Stack Frame）</a>
         </li>
     
     </div>
@@ -1154,27 +1234,21 @@ sin_family:    POSIX规范要求m
     
         <span class="sidebar-tag-name"><a href= "#">继承</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Engema</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">interesting</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">F1</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">news</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">翻译系列</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Verilog</a></span>
+        <span class="sidebar-tag-name"><a href= "#">Engema</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Pipe-line</a></span>
+        <span class="sidebar-tag-name"><a href= "#">interesting</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Keyword</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">lambda</a></span>
+        <span class="sidebar-tag-name"><a href= "#">Verilog</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">c++</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">c++11</a></span>
+        <span class="sidebar-tag-name"><a href= "#">Pipe-line</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">RAII</a></span>
     
@@ -1182,19 +1256,25 @@ sin_family:    POSIX规范要求m
     
         <span class="sidebar-tag-name"><a href= "#">Manual</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">collection</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">lambda</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">c++</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">c++11</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">内存</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">smart pointer</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">thread pool</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">unp</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">wiki</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">指针</a></span>
+        <span class="sidebar-tag-name"><a href= "#">unp</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">底层</a></span>
+        <span class="sidebar-tag-name"><a href= "#">指针</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">可变参数模版</a></span>
     
@@ -1202,13 +1282,15 @@ sin_family:    POSIX规范要求m
     
         <span class="sidebar-tag-name"><a href= "#">套接字</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">底层</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">心声</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">CyberPunk</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">总结</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">math</a></span>
     

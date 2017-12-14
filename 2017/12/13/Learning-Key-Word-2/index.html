@@ -134,7 +134,49 @@
         <div class="container">
             <main class="main post-page">
     <article class="article-entry">
-        
+        <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><ul>
+<li>定义：只允许在表的一端插入，在另一端删除。<ul>
+<li>允许插入的一端叫做队尾(rear), 允许删除的一端叫做队头(front)</li>
+<li>与栈对比，队列为FIFO。栈为LIFO</li>
+</ul>
+</li>
+<li>队列的存储方式<ul>
+<li>基于数组<ul>
+<li>可能会假溢出。因为维护的<u><strong>front</strong></u>指针与<u><strong>rear</strong></u>不得不不断的后移。从而使得数组空间前部可能会遭到极大的浪费。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>循环队列 — 应对假溢出<ul>
+<li>front = (front + 1) % maxSize;</li>
+<li>rear = (rear + 1) % maxSize;</li>
+</ul>
+</li>
+<li>链式队列 — 基于单链表<ul>
+<li>无惧溢出</li>
+</ul>
+</li>
+</ul>
+<h3 id="队列应用：-打印二项展开式-a-b-i-的系数-—-打印杨辉三角"><a href="#队列应用：-打印二项展开式-a-b-i-的系数-—-打印杨辉三角" class="headerlink" title="队列应用： 打印二项展开式 (a + b)^i 的系数 — 打印杨辉三角"></a>队列应用： 打印二项展开式 (a + b)^i 的系数 — 打印杨辉三角</h3><ul>
+<li>杨辉三角的性状可知，除了第一行以外。打印接下来的任意i行数据，都依赖于i-1行的数据。<br><img src="http://img2016.itdadao.com/d/file/tech/2016/07/25/cd4306160251935061.png" alt="pic1"><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="built_in">queue</span> &lt;<span class="keyword">int</span>&gt; q;</div><div class="line">    <span class="keyword">int</span> i = <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> j;</div><div class="line">    <span class="keyword">int</span> s,k;</div><div class="line">    <span class="keyword">int</span> t,u;</div><div class="line">    <span class="keyword">int</span> n = <span class="number">10</span>;</div><div class="line">    s=k=<span class="number">0</span>;</div><div class="line">    q.push(i);q.push(i);</div><div class="line">    <span class="keyword">for</span>(i = <span class="number">1</span>;i &lt;= n; i++)&#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">        q.push(k);</div><div class="line">        <span class="keyword">for</span>(j = <span class="number">1</span>;j &lt;= i + <span class="number">2</span>;j++)</div><div class="line">        &#123;</div><div class="line">            t = q.front();</div><div class="line">            q.pop();</div><div class="line">            u = s + t;q.push(u);</div><div class="line">            s = t;</div><div class="line">            <span class="keyword">if</span>( j != i + <span class="number">2</span>) <span class="built_in">cout</span> &lt;&lt; s &lt;&lt; <span class="string">' '</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">//keycode</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="队列应用：-bfs"><a href="#队列应用：-bfs" class="headerlink" title="队列应用： bfs"></a>队列应用： bfs</h3><p>​    寻找矩阵地图中的最短路径</p>
+<p>​    dfs相比之下就很慢咯</p>
+<h3 id="优先级队列"><a href="#优先级队列" class="headerlink" title="优先级队列"></a>优先级队列</h3><ul>
+<li>定义：每次从队列中取出的应是<strong><u>具有最高优先级的元素</u></strong>，这种队列就是优先级队列（Priority Queue）<ul>
+<li>每个元素都有一个优先权或值。</li>
+<li>优先级队列主要操作：1.查找；2.插入；3.删除</li>
+<li>优先权是一个可变的概念。优先级队列分为<strong><u>最小优先</u></strong>与<strong><u>最大优先</u></strong></li>
+</ul>
+</li>
+<li>存储表示与实现<ul>
+<li>数组：实现效率差 —  调整队列中元素的次序。 最坏：O(n)</li>
+<li>堆（heap）：实现效率高。O(log_2n)</li>
+</ul>
+</li>
+</ul>
+<h3 id="双端队列"><a href="#双端队列" class="headerlink" title="双端队列"></a>双端队列</h3>
     </article>
     <!-- 前后页  -->
     <ul class="post-pager">
@@ -543,7 +585,58 @@
     
     
     
-    <div class="total-archive"> Total : 26 </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-archive"> Total : 27 </div>
     
     <div class="post-archive">
     
@@ -552,6 +645,11 @@
     
     <div class="archive-year"> 2017 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/14</span><a class="archive-post-title" href= "/2017/12/14/key-word-collection/" >key word collection</a>
+        </li>
     
     
         <li class="archive-post-item">
@@ -639,21 +737,6 @@
         </li>
     
     
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/c-good-articles/" >c++ good articles</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/01</span><a class="archive-post-title" href= "/2017/10/01/thread-pool-源代码学习/" >thread pool 源代码学习</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2017/09/26/lambda-匿名函数/" >lambda - 匿名函数</a>
-        </li>
-    
-    
     
     
     
@@ -678,6 +761,21 @@
     
     
         <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/c-good-articles/" >c++ good articles</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/01</span><a class="archive-post-title" href= "/2017/10/01/thread-pool-源代码学习/" >thread pool 源代码学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2017/09/26/lambda-匿名函数/" >lambda - 匿名函数</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
             <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2017/09/26/可变参数模版/" >可变参数模版</a>
         </li>
     
@@ -693,12 +791,12 @@
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/函数调用的实质/" >函数调用的实质-结合栈帧探讨（Stack Frame）</a>
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/嵌入式处理器/" >嵌入式处理器</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/嵌入式处理器/" >嵌入式处理器</a>
+            <span class="archive-post-date">09/24</span><a class="archive-post-title" href= "/2017/09/24/函数调用的实质/" >函数调用的实质-结合栈帧探讨（Stack Frame）</a>
         </li>
     
     </div>
@@ -714,27 +812,21 @@
     
         <span class="sidebar-tag-name"><a href= "#">继承</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Engema</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">interesting</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">F1</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">news</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">翻译系列</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Verilog</a></span>
+        <span class="sidebar-tag-name"><a href= "#">Engema</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Pipe-line</a></span>
+        <span class="sidebar-tag-name"><a href= "#">interesting</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Keyword</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">lambda</a></span>
+        <span class="sidebar-tag-name"><a href= "#">Verilog</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">c++</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">c++11</a></span>
+        <span class="sidebar-tag-name"><a href= "#">Pipe-line</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">RAII</a></span>
     
@@ -742,19 +834,25 @@
     
         <span class="sidebar-tag-name"><a href= "#">Manual</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">collection</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">lambda</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">c++</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">c++11</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">内存</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">smart pointer</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">thread pool</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">unp</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">wiki</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">指针</a></span>
+        <span class="sidebar-tag-name"><a href= "#">unp</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">底层</a></span>
+        <span class="sidebar-tag-name"><a href= "#">指针</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">可变参数模版</a></span>
     
@@ -762,13 +860,15 @@
     
         <span class="sidebar-tag-name"><a href= "#">套接字</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">底层</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">心声</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">CyberPunk</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">总结</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">math</a></span>
     
