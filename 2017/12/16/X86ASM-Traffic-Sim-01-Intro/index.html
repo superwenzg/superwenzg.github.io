@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" >
     <title>
         
-        DiuR21Laonnu&#39;s sites
+        X86ASM Traffic Sim - 01 Intro · DiuR21Laonnu&#39;s sites
         
     </title>
     <link rel="icon" href= /assests/favicon.ico>
@@ -68,11 +68,22 @@
     
 </head>
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >DiuR21Laonnu</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">X86ASM Traffic Sim - 01 Intro</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/>DiuR21Laonnu</a>
 </header>
@@ -80,104 +91,133 @@
         <div class="site-intro">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(http://ok8er9pip.bkt.clouddn.com/postbanner.jpg)"></div>
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
             
+            X86ASM Traffic Sim - 01 Intro
+            <!-- 404 -->
+            
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+        </p>
+        <!-- 404 -->
+        
         <!-- 文章页meta -->
+        
+            <!-- 文章页标签  -->
+            
+                <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = X86ASM>X86ASM</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-href = Manual>Manual</a>
+    
+</div>
+            
+            <div class="post-intro-meta">
+                <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                <span class="post-intro-time">2017/12/16</span>
+            </div>
         
     </div>
 </div>
         <div class="container">
-            <main class="main index-page">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​    本文为“X86ASM - 交通模拟程序“系列文章的初篇。</p>
+<p>​    起对项目的介绍作用。以及，系列文章的相关目标。</p>
+<h1 id="系列文章目标"><a href="#系列文章目标" class="headerlink" title="系列文章目标"></a>系列文章目标</h1><ul>
+<li>总结程序中使用过的中断功能</li>
+<li>对比较有意义的功能模块，进行解析分解</li>
+<li><strong><u>重点介绍的是X86ASM下的调试</u></strong></li>
+</ul>
+<h1 id="项目本身完成功能及目标"><a href="#项目本身完成功能及目标" class="headerlink" title="项目本身完成功能及目标"></a>项目本身完成功能及目标</h1><ul>
+<li>交通灯<ul>
+<li>已完成<ul>
+<li>交通灯倒计时</li>
+<li>基本交通灯灯色切换</li>
+<li>交通灯倒计时的时延调整</li>
+</ul>
+</li>
+<li>未完成<ul>
+<li>交通灯形状更改为圆形</li>
+<li>交通灯闪烁</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>小车<ul>
+<li>已完成<ul>
+<li>小车运行</li>
+<li>小车基本走停逻辑判断</li>
+<li>小车数量的随机生成 2017.12.15 v0.3</li>
+<li>小车鲁棒走停逻辑判断 2017.12.15 v0.4</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>背景<ul>
+<li>已完成<ul>
+<li>基本背景绘图</li>
+<li>背景不闪烁 — 2017.12.14 v0.2<ul>
+<li>对小车进行重绘，而不是对整个背景进行重绘。效果良好</li>
+<li>关于一次写入VGA内存，资料过少。暂时搁置。</li>
+</ul>
+</li>
+<li><strong><u>倒计时读秒功能 2017.12.16 v0.5</u></strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>欲加入的新特性<ul>
+<li>使用鼠标生成或消灭小车<ul>
+<li>鼠标中断 -&gt; 获取坐标 -&gt; 扫描小车</li>
+</ul>
+</li>
+<li>交通灯倒计时的字符显示</li>
+<li>键盘中断程序模拟<ul>
+<li>键盘中断 -&gt; CALL PROCE</li>
+</ul>
+</li>
+<li>更加合理的功能分割<ul>
+<li>多文件？ Maybe</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="2017-12-16-v-5-剪影"><a href="#2017-12-16-v-5-剪影" class="headerlink" title="2017.12.16 v-.5 剪影"></a>2017.12.16 v-.5 剪影</h1><p><img src="http://ok8er9pip.bkt.clouddn.com/X86ASM.png" alt="pic1"></p>
+
+    </article>
+    <!-- 前后页  -->
+    <ul class="post-pager">
+        
+        
+            <li class="previous">
+                <a href= "/2017/12/14/key-word-collection/" title= key word collection >
+                    <span>Previous Post</span>
+                    <span>key word collection</span>
+                </a>
+            </li>
+        
+    </ul>
+    <!-- 来必力City版安装代码 -->
+
     
-    
-    
-        <article class="index-post">
-            <a class="content-show-full" href = "/2017/12/11/学习计划总结/" >
-                    <h2 class="abstract-title">
-                        
-                        <span>学习计划总结</span>
-                    </h2>
-                <div class="abstract-content">
-                    现已掌握或了解的Knowledge
-C/C++
-Python
-HTML/CSS/JS
-MySQL
-Verilog
-X86ASM
-MATLAB
-计算机网络
 
-应用层
-HTTP
-DNS
-SMTP
-P2P File Distribution
-
-
-运输层
-
-TCP
-
-流量控制
-滑动窗口
-接收方告知发送方RWND, 发送方根据RWND发送报文不可超过RWND
-
-
-
-
-拥塞控制
-
-慢启动
-指数增长后，若发生丢包 or 超时进入拥塞避免
-
-
-拥塞避免
-线性增乘性减
-
-
-快速恢复
-利用冗余ACK的办法，确认收方或发生了报文失序问题，快速恢复。
-
-
-
-
-
-可靠传输
-回退N步（GBN）
-选择重传（SR）
-收...
-                </div>
-            </a>
-            <div class="abstract-post-meta">
-                <!-- tags  -->
-                
-                <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-href = 总结>总结</a>
-    
-</div>
-                
-                <!-- date  -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer"></span><span class="abstract-time">2017/12/11</span>
-                </div>
-            </div>
-        </article>
-    
-    <!-- paginator  -->
-    
+<!-- City版安装代码已完成 -->
 </main>
             <!-- profile -->
             
