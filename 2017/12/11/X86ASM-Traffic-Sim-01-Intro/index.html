@@ -144,16 +144,16 @@
 <li><strong><u>重点介绍的是X86ASM下的调试</u></strong></li>
 </ul>
 <h1 id="项目本身完成功能及目标"><a href="#项目本身完成功能及目标" class="headerlink" title="项目本身完成功能及目标"></a>项目本身完成功能及目标</h1><ul>
-<li>交通灯<ul>
+<li>交通灯 — v<ul>
 <li>已完成<ul>
 <li>交通灯倒计时</li>
 <li>基本交通灯灯色切换</li>
+<li>交通灯倒计时的时延调整</li>
 </ul>
 </li>
 <li>未完成<ul>
 <li>交通灯形状更改为圆形</li>
 <li>交通灯闪烁</li>
-<li>交通灯倒计时的时延调整</li>
 </ul>
 </li>
 </ul>
@@ -162,11 +162,8 @@
 <li>已完成<ul>
 <li>小车运行</li>
 <li>小车基本走停逻辑判断</li>
-</ul>
-</li>
-<li>未完成<ul>
-<li>小车数量的随机生成</li>
-<li>小车鲁棒走停逻辑判断</li>
+<li>小车数量的随机生成 2017.12.15 v0.3</li>
+<li>小车鲁棒走停逻辑判断 2017.12.15 v0.4</li>
 </ul>
 </li>
 </ul>
@@ -174,11 +171,12 @@
 <li>背景<ul>
 <li>已完成<ul>
 <li>基本背景绘图</li>
-<li>背景不闪烁 — 2017.12.14<ul>
+<li>背景不闪烁 — 2017.12.14 v0.2<ul>
 <li>对小车进行重绘，而不是对整个背景进行重绘。效果良好</li>
 <li>关于一次写入VGA内存，资料过少。暂时搁置。</li>
 </ul>
 </li>
+<li>倒计时读秒功能 2017.12.15 v0.5</li>
 </ul>
 </li>
 </ul>
@@ -277,6 +275,20 @@
     <div class="sidebar-content sidebar-content-show-archive">
           <div class="sidebar-archive">
     <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -761,6 +773,21 @@
         </li>
     
     
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/c-good-articles/" >c++ good articles</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/01</span><a class="archive-post-title" href= "/2017/10/01/thread-pool-源代码学习/" >thread pool 源代码学习</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2017/09/26/lambda-匿名函数/" >lambda - 匿名函数</a>
+        </li>
+    
+    
     
     
     
@@ -782,21 +809,6 @@
     
     <div class="archive-year"> 2017 </div>
     <ul class="year-list">
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/03</span><a class="archive-post-title" href= "/2017/10/03/c-good-articles/" >c++ good articles</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/01</span><a class="archive-post-title" href= "/2017/10/01/thread-pool-源代码学习/" >thread pool 源代码学习</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
-            <span class="archive-post-date">09/26</span><a class="archive-post-title" href= "/2017/09/26/lambda-匿名函数/" >lambda - 匿名函数</a>
-        </li>
     
     
         <li class="archive-post-item">
@@ -836,27 +848,27 @@
     
         <span class="sidebar-tag-name"><a href= "#">继承</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">Engema</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">interesting</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">F1</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">news</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">翻译系列</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">Engema</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">interesting</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">Keyword</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">X86ASM</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">Manual</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Verilog</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">Pipe-line</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">RAII</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">X86ASM</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">Manual</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">collection</a></span>
     
@@ -872,9 +884,9 @@
     
         <span class="sidebar-tag-name"><a href= "#">thread pool</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">wiki</a></span>
-    
         <span class="sidebar-tag-name"><a href= "#">unp</a></span>
+    
+        <span class="sidebar-tag-name"><a href= "#">wiki</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">指针</a></span>
     
@@ -882,17 +894,17 @@
     
         <span class="sidebar-tag-name"><a href= "#">泛化</a></span>
     
+        <span class="sidebar-tag-name"><a href= "#">底层</a></span>
+    
         <span class="sidebar-tag-name"><a href= "#">套接字</a></span>
     
-        <span class="sidebar-tag-name"><a href= "#">底层</a></span>
+        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">心声</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">CyberPunk</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">总结</a></span>
-    
-        <span class="sidebar-tag-name"><a href= "#">嵌入式开发</a></span>
     
         <span class="sidebar-tag-name"><a href= "#">math</a></span>
     
